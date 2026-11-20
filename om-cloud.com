@@ -22,10 +22,10 @@
       --accent-orange: #ff6600;
       --accent-orange-hover: #ff8533;
       --accent-orange-soft: rgba(255, 102, 0, 0.14);
-      --bg-dark: #070708;
-      --panel-bg: #111214;
+      --bg-dark: #000000;
+      --panel-bg: #111111;
       --card-bg: #16181b;
-      --input-bg: #0b0c0e;
+      --input-bg: #08090a;
       --border-subtle: #26292e;
       --border-orange: rgba(255, 102, 0, 0.35);
       --text-main: #f5f5f7;
@@ -38,214 +38,7 @@
     * {
       box-sizing: border-box;
     }
-
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      width: 100%;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* ==========================================================================
-       2. BARRA SUPERIOR DE NAVEGACIÓN & PESTAÑAS CLOUD
-       ========================================================================== */
-    .cloud-navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(11, 12, 14, 0.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-orange);
-      padding: 12px 20px;
-    }
-
-    .cloud-navbar-inner {
-      max-width: 1420px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-    }
-
-    .brand-cluster {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand-icon-box {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #1f1610 0%, #121212 100%);
-      border: 1px solid var(--border-orange);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .brand-titles h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.15rem;
-      font-weight: 800;
-      margin: 0;
-      letter-spacing: 1px;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .brand-titles h1 span.accent {
-      color: var(--accent-orange);
-    }
-
-    .sync-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: rgba(16, 185, 129, 0.14);
-      color: #34d399;
-      border: 1px solid rgba(16, 185, 129, 0.35);
-    }
-
-    .sync-pill.offline {
-      background: rgba(245, 158, 11, 0.14);
-      color: #fbbf24;
-      border-color: rgba(245, 158, 11, 0.35);
-    }
-
-    .sync-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background-color: #10b981;
-      box-shadow: 0 0 8px #10b981;
-      animation: pulseDot 2s infinite;
-    }
-
-    .sync-pill.offline .sync-dot {
-      background-color: #f59e0b;
-      box-shadow: 0 0 8px #f59e0b;
-    }
-
-    @keyframes pulseDot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.45; transform: scale(0.85); }
-    }
-
-    /* Pestañas de navegación */
-    .cloud-tabs {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      overflow-x: auto;
-      max-width: 100%;
-      padding-bottom: 2px;
-    }
-
-    .cloud-tab-btn {
-      appearance: none;
-      border: 1px solid var(--border-subtle);
-      background: var(--panel-bg);
-      color: #d1d5db;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.76rem;
-      font-weight: 700;
-      padding: 9px 14px;
-      border-radius: 10px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      white-space: nowrap;
-      transition: all 0.2s ease;
-    }
-
-    .cloud-tab-btn:hover {
-      border-color: var(--accent-orange);
-      color: #ffffff;
-    }
-
-    .cloud-tab-btn.active {
-      background: var(--accent-orange);
-      border-color: var(--accent-orange);
-      color: #000000;
-      box-shadow: 0 4px 16px rgba(255, 102, 0, 0.35);
-    }
-
-    .tab-counter {
-      font-size: 0.7rem;
-      font-weight: 800;
-      padding: 2px 7px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      color: #ffffff;
-    }
-
-    .cloud-tab-btn.active .tab-counter {
-      background: rgba(0, 0, 0, 0.22);
-      color: #000000;
-    }
-
-    /* Contenedor Principal de Vistas */
-    .main-workspace {
-      max-width: 1420px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 22px 18px 40px;
-      flex: 1;
-    }
-
-    .view-section {
-      display: none;
-      animation: fadeInView 0.22s ease;
-    }
-
-    .view-section.active {
-      display: block;
-    }
-
-    @keyframes fadeInView {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ==========================================================================
-       3. VISTA 1: GENERADOR DE COTIZACIONES (ESTRUCTURA 2 COLUMNAS)
-       ========================================================================== */
-    .layout-container {
-      display: grid;
-      grid-template-columns: 390px 1fr;
-      gap: 28px;
-      align-items: start;
-    }
-
-    .panel-formulario {
-      background-color: var(--panel-bg);
-      padding: 20px;
-      border-radius: 14px;
-      border: 1px solid var(--border-orange);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
-    }
-
+/* ... existing code ... -->
     .editing-banner {
       display: none;
       background: rgba(255, 102, 0, 0.14);
@@ -255,6 +48,7 @@
       margin-bottom: 14px;
       font-size: 0.78rem;
       color: #ffd8bd;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 8px;
@@ -264,123 +58,72 @@
       display: flex;
     }
 
+    .editing-banner-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
     .editing-banner button {
       background: transparent;
       border: 1px solid var(--accent-orange);
       color: var(--accent-orange);
       border-radius: 6px;
-      padding: 4px 8px;
+      padding: 5px 9px;
       font-size: 0.68rem;
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
       cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .editing-banner button.btn-banner-save {
+      background: var(--accent-orange);
+      color: #000000;
+    }
+
+    .editing-banner button:hover {
+      background: #ffffff;
+      border-color: #ffffff;
+      color: #000000;
     }
 
     .section-title {
       color: var(--accent-orange);
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 800;
-      margin-top: 22px;
-      margin-bottom: 14px;
-      border-bottom: 1px solid #2a2d32;
-      padding-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-    }
-
-    .form-group {
-      margin-bottom: 14px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 6px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.72rem;
-      color: #cbd5e1;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    .form-control {
-      width: 100%;
-      padding: 10px 12px;
-      background-color: var(--input-bg);
-      border: 1px solid #2f333a;
-      color: #ffffff;
-      border-radius: 8px;
-      font-family: 'Roboto', sans-serif;
-      font-size: 0.9rem;
-      transition: all 0.25s ease;
-    }
-
-    .form-control:focus {
-      outline: none;
-      border-color: var(--accent-orange);
-      box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.18);
-    }
-
-    textarea.form-control {
-      resize: vertical;
-      min-height: 70px;
-    }
-
-    .proyecto-form-block {
-      background-color: #181a1e;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 14px;
-      border-left: 3px solid var(--accent-orange);
-      border-top: 1px solid #262930;
-      border-right: 1px solid #262930;
-      border-bottom: 1px solid #262930;
-      display: none;
-    }
-
-    .proyecto-form-block h4 {
-      margin: 0 0 14px 0;
-      color: var(--accent-orange);
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-    }
-
-    .label-with-btn {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 6px;
-    }
-
-    .label-with-btn label {
-      margin-bottom: 0;
-    }
-
-    .btn-clear-img {
-      color: #ff4d4d;
-      font-size: 0.65rem;
-      cursor: pointer;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      background: #1f1414;
-      padding: 3px 8px;
-      border-radius: 5px;
-      border: 1px solid rgba(255, 77, 77, 0.5);
-      display: none;
-      transition: 0.2s;
-    }
-
-    .btn-clear-img:hover {
-      background: #ef4444;
-      color: #ffffff;
-    }
-
+/* ... existing code ... -->
     .actions-stack {
       display: flex;
       flex-direction: column;
       gap: 10px;
       margin-top: 20px;
+    }
+
+    .auto-save-check-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      background: #17181c;
+      border: 1px solid #2b2e36;
+      border-radius: 10px;
+      padding: 10px 12px;
+      cursor: pointer;
+      font-size: 0.78rem;
+      color: #e5e7eb;
+      user-select: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .auto-save-check-row:hover {
+      border-color: var(--accent-orange);
+    }
+
+    .auto-save-check-row input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--accent-orange);
+      cursor: pointer;
+      flex-shrink: 0;
     }
 
     .btn-cloud-save {
@@ -401,798 +144,55 @@
       justify-content: center;
       gap: 8px;
     }
-
-    .btn-cloud-save:hover {
-      background: rgba(255, 102, 0, 0.16);
-      box-shadow: 0 0 18px rgba(255, 102, 0, 0.35);
-      transform: translateY(-1px);
-    }
-
-    .btn-cloud-save:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .btn-generar {
-      width: 100%;
-      background-color: var(--accent-orange);
-      color: #000000;
-      border: none;
-      padding: 14px;
-      border-radius: 12px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      text-transform: uppercase;
-    }
-
-    .btn-generar:hover {
-      background-color: #ffffff;
-      color: #000000;
-      box-shadow: 0 0 22px rgba(255, 102, 0, 0.55);
-      transform: translateY(-1px);
-    }
-
-    .btn-limpiar {
-      width: 100%;
-      background-color: #1c1d21;
-      color: #f87171;
-      border: 1px solid rgba(248, 113, 113, 0.45);
-      padding: 10px;
-      border-radius: 10px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 0.74rem;
-      cursor: pointer;
-      transition: 0.2s;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .btn-limpiar:hover {
-      background-color: #ef4444;
-      color: #ffffff;
-      border-color: #ef4444;
-    }
-
-    /* ==========================================================================
-       4. VISTA PREVIA PDF (800PX FIJOS CON ESCALADO RESPONSIVO EN MÓVIL)
-       ========================================================================== */
-    .panel-vista-previa {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      background-color: #16181c;
-      padding: 22px;
-      border-radius: 14px;
-      border: 1px dashed #32363f;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .preview-scale-wrapper {
-      width: 800px;
-      transform-origin: top center;
-    }
-
-    #documento-imagen {
-      width: 800px !important;
-      min-width: 800px !important;
-      max-width: 800px !important;
-      background-color: #ffffff !important;
-      color: #111111;
-      position: relative;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.65);
-      display: flex;
-      flex-direction: column;
-      padding: 0;
-      margin: 0 auto;
-    }
-
-    /* Cabecera elegante corporativa ONEGA MUEBLES */
-    .doc-header {
-      background: #0b0b0b;
-      color: #ffffff;
-      padding: 28px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 5px solid var(--accent-orange);
-    }
-
-    .doc-header-left {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .doc-logo-svg {
-      width: 52px;
-      height: 52px;
-      flex-shrink: 0;
-    }
-
-    .doc-empresa-info h3 {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 20px;
-      font-weight: 800;
-      color: #ffffff;
-      letter-spacing: 1.5px;
-    }
-
-    .doc-empresa-info p {
-      margin: 4px 0 0 0;
-      font-size: 11px;
-      color: #b5b5b5;
-      font-family: 'Roboto', sans-serif;
-      letter-spacing: 0.4px;
-    }
-
-    .doc-header-right {
-      text-align: right;
-    }
-
-    .doc-header-right h2 {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--accent-orange);
-      letter-spacing: 2px;
-    }
-
-    .doc-header-right p {
-      margin: 4px 0 0 0;
-      font-size: 13px;
-      color: #e5e5e5;
-      font-weight: 600;
-    }
-
-    .doc-body {
-      padding: 34px 40px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .info-grid-top {
-      display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 20px;
-      margin-bottom: 28px;
-    }
-
-    .info-card {
-      background-color: #f8f9fa;
-      border: 1px solid #e9ecef;
-      border-left: 4px solid var(--accent-orange);
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-    }
-
-    .info-card label {
-      display: block;
-      font-size: 10px;
-      font-family: 'Montserrat', sans-serif;
-      text-transform: uppercase;
-      color: #666666;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .info-card span {
-      display: block;
-      font-size: 14px;
-      font-weight: 700;
-      color: #111111;
-    }
-
-    .info-card small {
-      display: block;
-      font-size: 11.5px;
-      color: #555555;
-      margin-top: 3px;
-    }
-
-    /* Bloques de partidas / muebles */
-    .content-grid {
-      background: #fafafa;
-      border: 1px solid #eaeaea;
-      border-radius: 10px;
-      padding: 20px;
-      display: flex;
-      gap: 24px;
-      margin-bottom: 22px;
-    }
-
-    .content-grid.panoramico {
-      flex-direction: column;
-    }
-
-    .imagenes-col {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .content-grid.panoramico .imagenes-col {
-      flex: none;
-      width: 100%;
-    }
-
-    .img-container {
-      width: 100%;
-      background-color: #ffffff;
-      border-radius: 8px;
-      border: 1px dashed #cccccc;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      padding: 6px;
-      overflow: hidden;
-    }
-
-    .ref-container {
-      min-height: 215px;
-    }
-
-    .ej-container {
-      min-height: 125px;
-      background-color: #f4f4f4;
-    }
-
-    .badge-ejemplo {
-      position: absolute;
-      top: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 9px;
-      font-weight: 800;
-      color: var(--accent-orange);
-      font-family: 'Montserrat', sans-serif;
-      background: rgba(255, 255, 255, 0.96);
-      padding: 3px 8px;
-      border-radius: 4px;
-      z-index: 5;
-      border: 1px solid rgba(255, 102, 0, 0.25);
-      white-space: nowrap;
-    }
-
-    .img-container img {
-      max-width: 100%;
-      max-height: 320px;
-      width: auto;
-      height: auto;
-      object-fit: contain !important;
-      display: none;
-    }
-
-    .detalles-box {
-      flex: 1.3;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .content-grid.panoramico .detalles-box {
-      flex: none;
-      width: 100%;
-    }
-
-    .detalles-box h3 {
-      font-family: 'Montserrat', sans-serif;
-      color: #111111;
-      margin: 0 0 8px 0;
-      border-bottom: 2px solid var(--accent-orange);
-      padding-bottom: 5px;
-      font-size: 15px;
-    }
-
-    .detalles-box p {
-      font-size: 13px;
-      line-height: 1.55;
-      color: #333333;
-      white-space: pre-wrap;
-      margin: 0 0 15px 0;
-    }
-
-    .subtotal-proyecto-box {
-      background-color: #ffffff;
-      padding: 10px 15px;
-      border-radius: 6px;
-      display: flex;
-      justify-content: space-between;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 12.5px;
-      color: #111111;
-      border: 1px solid #dddddd;
-    }
-
-    /* Resumen final y totales */
-    .resumen-final {
-      display: flex;
-      gap: 24px;
-      align-items: stretch;
-      margin-top: 12px;
-      margin-bottom: 20px;
-    }
-
-    .condiciones-box {
-      flex: 1.4;
-      background-color: #f8f9fa;
-      border: 1px solid #e9ecef;
-      border-left: 4px solid var(--accent-orange);
-      padding: 15px 20px;
-      border-radius: 0 8px 8px 0;
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .condiciones-box h5 {
-      margin: 0 0 5px 0;
-      color: #111111;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 12.5px;
-      text-transform: uppercase;
-    }
-
-    .condiciones-box p {
-      margin: 0 0 10px 0;
-      font-size: 12px;
-      color: #444444;
-      line-height: 1.45;
-      white-space: pre-wrap;
-    }
-
-    .condiciones-box p:last-child {
-      margin-bottom: 0;
-    }
-
-    .precio-box {
-      flex: 1;
-      background: linear-gradient(135deg, #1b1b1b 0%, #050505 100%);
-      color: #ffffff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .precio-box h4 {
-      margin: 0 0 12px 0;
-      font-family: 'Montserrat', sans-serif;
-      color: var(--accent-orange);
-      font-size: 12px;
-      letter-spacing: 1px;
-      text-align: center;
-      text-transform: uppercase;
-    }
-
-    .precio-fila {
-      display: flex;
-      justify-content: space-between;
-      font-size: 13px;
-      margin-bottom: 6px;
-      font-family: 'Roboto', sans-serif;
-      color: #d1d5db;
-    }
-
-    #row-descuento,
-    #row-subtotal-desc {
-      color: #ffaa80;
-      font-weight: 500;
-    }
-
-    .precio-fila-total {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 8px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(255, 255, 255, 0.22);
-      font-family: 'Montserrat', sans-serif;
-      color: #ffffff;
-    }
-
-    .precio-fila-total .monto {
-      font-size: 24px;
-      font-weight: 800;
-      color: var(--accent-orange);
-    }
-
-    .doc-footer-container {
-      margin-top: 26px;
-      padding-top: 15px;
-      border-top: 2px solid #eaeaea;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      color: #666666;
-    }
-
-    .doc-footer-container strong {
-      color: #111111;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    .firma-generator {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 9.5px;
-      color: #888888;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-    }
-
-    .firma-generator span {
-      color: var(--accent-orange);
-      font-weight: 800;
-    }
-
-    /* ==========================================================================
-       5. VISTAS CLOUD: SOLICITUDES WEB, ACTIVAS Y ARCHIVADAS
-       ========================================================================== */
-    .section-header-bar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 20px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .section-header-bar h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.35rem;
-      font-weight: 800;
-      margin: 0;
-      color: #ffffff;
-    }
-
-    .section-header-bar h2 span {
-      color: var(--accent-orange);
-    }
-
-    .section-header-bar p {
-      margin: 4px 0 0 0;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    /* KPIs Resumen para Activas y Archivadas */
-    .kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-bottom: 22px;
-    }
-
-    .kpi-card {
-      background: var(--panel-bg);
-      border: 1px solid var(--border-subtle);
-      border-left: 4px solid var(--accent-orange);
-      border-radius: 12px;
-      padding: 16px 20px;
-    }
-
-    .kpi-card .kpi-label {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      letter-spacing: 0.8px;
-    }
-
-    .kpi-card .kpi-value {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.55rem;
-      font-weight: 800;
-      color: #ffffff;
-      margin-top: 6px;
-    }
-
-    .kpi-card .kpi-value.accent {
-      color: var(--accent-orange);
-    }
-
-    /* Barra de búsqueda y filtros */
-    .toolbar-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-
-    .search-box {
-      position: relative;
-      flex: 1;
-      min-width: 250px;
-      max-width: 440px;
-    }
-
-    .search-box input {
-      width: 100%;
-      padding: 10px 14px 10px 36px;
-      border-radius: 10px;
-      border: 1px solid var(--border-subtle);
-      background: var(--panel-bg);
-      color: #ffffff;
-      font-size: 0.88rem;
-    }
-
-    .search-box input:focus {
-      outline: none;
-      border-color: var(--accent-orange);
-    }
-
-    .search-box svg {
-      position: absolute;
-      left: 11px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-muted);
-    }
-
-    .filter-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .filter-pill-btn {
-      background: var(--panel-bg);
-      border: 1px solid var(--border-subtle);
-      color: #d1d5db;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 7px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .filter-pill-btn:hover {
-      border-color: var(--accent-orange);
-    }
-
-    .filter-pill-btn.active {
-      background: var(--accent-orange);
-      border-color: var(--accent-orange);
-      color: #000000;
-    }
-
-    /* Grid de Tarjetas Cloud */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 18px;
-    }
-
-    .cloud-card {
-      background: var(--panel-bg);
-      border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 14px;
-      transition: border-color 0.2s ease, transform 0.2s ease;
-    }
-
-    .cloud-card:hover {
-      border-color: var(--border-orange);
-      transform: translateY(-2px);
-    }
-
-    .cloud-card-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 10px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .folio-tag {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 800;
-      color: var(--accent-orange);
-      background: var(--accent-orange-soft);
-      border: 1px solid rgba(255, 102, 0, 0.35);
-      padding: 4px 10px;
-      border-radius: 7px;
-      display: inline-block;
-    }
-
-    .date-tag {
-      font-size: 0.74rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-      display: block;
-    }
-
-    .status-select {
-      background: var(--input-bg);
-      color: #ffffff;
-      border: 1px solid #363a42;
-      border-radius: 8px;
-      padding: 6px 10px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .status-select:focus {
-      outline: none;
-      border-color: var(--accent-orange);
-    }
-
-    .card-client-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #ffffff;
-      margin: 0 0 3px 0;
-    }
-
-    .card-subtitle {
-      font-size: 0.84rem;
-      color: #cbd5e1;
-      margin: 0;
-    }
-
-    .card-meta-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      background: var(--input-bg);
-      border: 1px solid #22252b;
-      border-radius: 10px;
-      padding: 11px 12px;
-      font-size: 0.78rem;
-    }
-
-    .meta-item span {
-      display: block;
-      font-size: 0.67rem;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      margin-bottom: 2px;
-    }
-
-    .meta-item strong {
-      color: #f3f4f6;
-      font-weight: 500;
-    }
-
-    .whatsapp-link {
-      color: #34d399;
-      text-decoration: none;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .whatsapp-link:hover {
-      text-decoration: underline;
-    }
-
-    .furniture-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .furniture-badge {
-      font-size: 0.72rem;
-      font-weight: 600;
-      background: #1f2228;
-      color: #ffd4b8;
-      border: 1px solid #323640;
-      padding: 4px 9px;
-      border-radius: 6px;
-    }
-
-    .notes-box {
-      background: rgba(255, 255, 255, 0.03);
-      border-left: 3px solid #4b5563;
-      padding: 8px 11px;
-      border-radius: 0 6px 6px 0;
-      font-size: 0.8rem;
-      color: #d1d5db;
-      line-height: 1.4;
-    }
-
-    .budget-amount-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #0d0e11;
-      border: 1px solid #262930;
-      border-radius: 10px;
-      padding: 10px 14px;
-    }
-
-    .budget-amount-bar span {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    .budget-amount-bar strong {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--accent-orange);
-    }
-
-    .card-actions-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding-top: 6px;
-    }
-
-    .btn-card-primary {
-      flex: 1;
-      min-width: 150px;
-      background: var(--accent-orange);
-      color: #000000;
-      border: none;
-      border-radius: 9px;
-      padding: 10px 12px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: 0.2s;
-      text-align: center;
-    }
-
-    .btn-card-primary:hover {
-      background: #ffffff;
-    }
-
-    .btn-card-secondary {
-      background: #1e2127;
-      color: #e5e7eb;
-      border: 1px solid #323640;
-      border-radius: 9px;
-      padding: 10px 12px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.73rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
+/* ... existing code ... -->
     .btn-card-secondary:hover {
       border-color: var(--accent-orange);
       color: #ffffff;
+    }
+
+    .btn-card-archive {
+      background: rgba(245, 158, 11, 0.14);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.42);
+      border-radius: 9px;
+      padding: 10px 13px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .btn-card-archive:hover {
+      background: #f59e0b;
+      color: #000000;
+      border-color: #f59e0b;
+    }
+
+    .btn-whatsapp-card {
+      background: rgba(16, 185, 129, 0.14);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.42);
+      border-radius: 9px;
+      padding: 10px 13px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .btn-whatsapp-card:hover {
+      background: #10b981;
+      color: #000000;
+      border-color: #10b981;
     }
 
     .btn-card-danger {
@@ -1208,271 +208,65 @@
       transition: 0.2s;
     }
 
-    .btn-card-danger:hover {
+    .btn-card-danger:hover,
+    .btn-card-danger.confirming {
       background: #ef4444;
       color: #ffffff;
+      border-color: #ef4444;
+    }
+
+    .btn-card-danger.confirming {
+      box-shadow: 0 0 14px rgba(239, 68, 68, 0.55);
+    }
+
+    .archive-type-badge {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 4px 9px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .archive-type-badge.tipo-cotizacion {
+      background: rgba(255, 102, 0, 0.16);
+      color: #ff944d;
+      border: 1px solid rgba(255, 102, 0, 0.35);
+    }
+
+    .archive-type-badge.tipo-solicitud {
+      background: rgba(59, 130, 246, 0.16);
+      color: #93c5fd;
+      border: 1px solid rgba(59, 130, 246, 0.35);
+    }
+
+    .archived-date-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.73rem;
+      color: #fbbf24;
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: 7px;
+      padding: 5px 10px;
     }
 
     .empty-state-box {
       grid-column: 1 / -1;
       background: var(--panel-bg);
-      border: 1px dashed #32363f;
-      border-radius: 14px;
-      padding: 46px 20px;
-      text-align: center;
-      color: var(--text-muted);
-    }
-
-    .empty-state-box h3 {
-      font-family: 'Montserrat', sans-serif;
-      color: #ffffff;
-      margin: 0 0 8px 0;
-      font-size: 1.05rem;
-    }
-
-    /* ==========================================================================
-       6. MODAL DE CONFIRMACIÓN PERSONALIZADO & NOTIFICACIONES TOAST
-       ========================================================================== */
-    .custom-modal-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 999;
-      background: rgba(0, 0, 0, 0.78);
-      backdrop-filter: blur(6px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-    }
-
-    .custom-modal-overlay.open {
-      display: flex;
-    }
-
-    .custom-modal-box {
-      background: #141619;
-      border: 1px solid var(--border-orange);
-      border-radius: 16px;
-      max-width: 430px;
-      width: 100%;
-      padding: 24px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
-      animation: modalPop 0.2s ease;
-    }
-
-    @keyframes modalPop {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    .custom-modal-box h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.05rem;
-      margin: 0 0 10px 0;
-      color: #ffffff;
-    }
-
-    .custom-modal-box p {
-      font-size: 0.88rem;
-      color: #cbd5e1;
-      line-height: 1.5;
-      margin: 0 0 22px 0;
-    }
-
-    .custom-modal-actions {
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-    }
-
-    .btn-modal-cancel {
-      background: #22252b;
-      color: #e5e7eb;
-      border: 1px solid #353942;
-      border-radius: 9px;
-      padding: 10px 16px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .btn-modal-confirm {
-      background: var(--accent-orange);
-      color: #000000;
-      border: none;
-      border-radius: 9px;
-      padding: 10px 18px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .btn-modal-confirm.danger {
-      background: #ef4444;
-      color: #ffffff;
-    }
-
-    /* Toast container */
-    .toast-container {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-width: 340px;
-    }
-
-    .toast-item {
-      background: #16181d;
-      color: #ffffff;
-      border: 1px solid var(--border-orange);
-      border-left: 4px solid var(--accent-orange);
-      border-radius: 10px;
-      padding: 12px 16px;
-      font-size: 0.82rem;
-      font-weight: 500;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65);
-      animation: slideInToast 0.25s ease;
-    }
-
-    .toast-item.success {
-      border-left-color: #10b981;
-    }
-
-    .toast-item.error {
-      border-left-color: #ef4444;
-    }
-
-    @keyframes slideInToast {
-      from { opacity: 0; transform: translateX(24px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    .app-footer {
-      text-align: center;
-      padding: 18px;
-      border-top: 1px solid #1b1d22;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      color: #6b7280;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-    }
-
-    .app-footer span {
-      color: var(--accent-orange);
-      font-weight: 800;
-    }
-
-    /* ==========================================================================
-       7. ADAPTACIÓN RESPONSIVA (TABLET Y MÓVIL)
-       ========================================================================== */
-    @media (max-width: 1080px) {
-      .layout-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .panel-vista-previa {
-        padding: 14px 8px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .cloud-navbar {
-        padding: 10px 12px;
-      }
-
-      .main-workspace {
-        padding: 14px 10px 32px;
-      }
-
-      .cards-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .card-meta-list {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ==========================================================================
-       BARRA SUPERIOR DE NAVEGACIÓN — ONEGA MUEBLES CLOUD
-       ========================================================================== -->
-  <header class="cloud-navbar">
-    <div class="cloud-navbar-inner">
-      
-      <!-- Identidad & Estado de Sincronización Firebase -->
-      <div class="brand-cluster">
-        <div class="brand-icon-box" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff6600" stroke-width="2">
-            <rect x="3" y="4" width="18" height="7" rx="1.5" />
-            <rect x="3" y="13" width="18" height="7" rx="1.5" />
-            <line x1="9" y1="7.5" x2="15" y2="7.5" stroke="#ffffff" stroke-linecap="round" />
-            <line x1="9" y1="16.5" x2="15" y2="16.5" stroke="#ffffff" stroke-linecap="round" />
-          </svg>
-        </div>
-        <div class="brand-titles">
-          <h1>
-            ONEGA MUEBLES <span class="accent">CLOUD</span>
-            <span id="firebaseSyncPill" class="sync-pill">
-              <span class="sync-dot"></span>
-              <span id="firebaseSyncText">Conectando Cloud...</span>
-            </span>
-          </h1>
-        </div>
-      </div>
-
-      <!-- 4 Pestañas Principales con Contadores Dinámicos -->
-      <nav class="cloud-tabs" aria-label="Módulos de Onega Muebles Cloud">
-        <button type="button" class="cloud-tab-btn active" data-view="generador">
-          <span>🧾 Generador de Cotizaciones</span>
-        </button>
-
-        <button type="button" class="cloud-tab-btn" data-view="solicitudes">
-          <span>📥 Solicitudes Web</span>
-          <span class="tab-counter" id="count-solicitudes">0</span>
-        </button>
-
-        <button type="button" class="cloud-tab-btn" data-view="activas">
-          <span>📂 Cotizaciones Activas</span>
-          <span class="tab-counter" id="count-activas">0</span>
-        </button>
-
-        <button type="button" class="cloud-tab-btn" data-view="archivadas">
-          <span>🗄️ Archivadas</span>
-          <span class="tab-counter" id="count-archivadas">0</span>
-        </button>
-      </nav>
-
-    </div>
-  </header>
-
-  <!-- ==========================================================================
-       ÁREA DE TRABAJO PRINCIPAL (4 VISTAS MODULARES)
-       ========================================================================== -->
-  <main class="main-workspace">
-
-    <!-- ========================================================================
-         VISTA 1: GENERADOR DE COTIZACIONES (2 COLUMNAS + PDF ALTA CALIDAD)
-         ======================================================================== -->
-    <section id="view-generador" class="view-section active">
-      <div class="layout-container">
-        
+/* ... existing code ... -->
         <!-- COLUMNA IZQUIERDA: PANEL FORMULARIO -->
         <div class="panel-formulario">
           
           <!-- Banner indicador cuando se edita un presupuesto guardado -->
           <div id="editingBanner" class="editing-banner">
             <span>✏️ Editando: <strong id="editingFolioLabel">#ONG-100</strong></span>
-            <button type="button" id="cancelEditModeBtn">Nuevo</button>
+            <div class="editing-banner-actions">
+              <button type="button" id="bannerSaveChangesBtn" class="btn-banner-save">💾 Guardar</button>
+              <button type="button" id="cancelEditModeBtn">+ Nueva</button>
+            </div>
           </div>
 
           <div class="section-title" style="margin-top: 0;">🧹 Acciones Rápidas</div>
@@ -1555,8 +349,12 @@
 
           <!-- Botones de Guardado Cloud y Exportación PDF -->
           <div class="actions-stack">
+            <label class="auto-save-check-row" for="autoSaveOnPdfCheckbox">
+              <input type="checkbox" id="autoSaveOnPdfCheckbox" checked />
+              <span>Guardar automáticamente en Activas al generar PDF</span>
+            </label>
             <button type="button" id="btnGuardarCloud" class="btn-cloud-save">
-              <span>☁️ Guardar en Activas (Cloud)</span>
+              <span>💾 Guardar en Cotizaciones Activas</span>
             </button>
             <button type="button" id="btnGenerarPdf" class="btn-generar">
               📥 Generar PDF de Alta Calidad
@@ -1581,7 +379,7 @@
                   </svg>
                   <div class="doc-empresa-info">
                     <h3>ONEGA MUEBLES</h3>
-                    <p>Carpintería &amp; Tapicería Contract a la Medida</p>
+                    <p>Diseño y Fabricación de Mobiliario a la Medida</p>
                   </div>
                 </div>
                 <div class="doc-header-right">
@@ -1697,6 +495,7 @@
 
         <div class="filter-pills" id="solicitudesStatusFilters">
           <button type="button" class="filter-pill-btn active" data-status-filter="ALL">Todos</button>
+          <button type="button" class="filter-pill-btn" data-status-filter="Nuevo">Nuevo</button>
           <button type="button" class="filter-pill-btn" data-status-filter="Recibido en Taller">Recibido en Taller</button>
           <button type="button" class="filter-pill-btn" data-status-filter="En Cotización">En Cotización</button>
           <button type="button" class="filter-pill-btn" data-status-filter="Cotizado">Cotizado</button>
@@ -1708,13 +507,13 @@
     </section>
 
     <!-- ========================================================================
-         VISTA 3: COTIZACIONES ACTIVAS (FIRESTORE: onega_presupuestos, archivada == false)
+         VISTA 3: COTIZACIONES ACTIVAS (FIRESTORE: onega_presupuestos, archivada !== true)
          ======================================================================== -->
     <section id="view-activas" class="view-section">
       <div class="section-header-bar">
         <div>
           <h2>Cotizaciones <span>Activas</span></h2>
-          <p>Presupuestos vigentes guardados en Onega Muebles Cloud listos para seguimiento o edición.</p>
+          <p>Presupuestos vigentes guardados en Onega Muebles Cloud listos para seguimiento, edición o archivo.</p>
         </div>
       </div>
 
@@ -1740,7 +539,15 @@
             <circle cx="11" cy="11" r="8" />
             <line x1="21" y1="21" x2="16.65" y2="16.65" />
           </svg>
-          <input type="text" id="searchActivasInput" placeholder="Buscar cotización activa por cliente, empresa o folio..." />
+          <input type="text" id="searchActivasInput" placeholder="Buscar cotización activa por folio, cliente o empresa..." />
+        </div>
+
+        <div class="filter-pills" id="activasStatusFilters">
+          <button type="button" class="filter-pill-btn active" data-active-status="ALL">Todas</button>
+          <button type="button" class="filter-pill-btn" data-active-status="Enviada">Enviada</button>
+          <button type="button" class="filter-pill-btn" data-active-status="En Revisión">En Revisión</button>
+          <button type="button" class="filter-pill-btn" data-active-status="Aprobada">Aprobada</button>
+          <button type="button" class="filter-pill-btn" data-active-status="En Fabricación">En Fabricación</button>
         </div>
       </div>
 
@@ -1748,24 +555,28 @@
     </section>
 
     <!-- ========================================================================
-         VISTA 4: COTIZACIONES ARCHIVADAS (FIRESTORE: onega_presupuestos, archivada == true)
+         VISTA 4: ARCHIVADAS (UNIFICADA: COTIZACIONES + SOLICITUDES WEB ARCHIVADAS)
          ======================================================================== -->
     <section id="view-archivadas" class="view-section">
       <div class="section-header-bar">
         <div>
-          <h2>Cotizaciones <span>Archivadas</span></h2>
-          <p>Historial de presupuestos cerrados o archivados. Puedes restaurarlos a Activas en cualquier momento.</p>
+          <h2>Registros <span>Archivados</span></h2>
+          <p>Historial unificado de cotizaciones y solicitudes web archivadas. Restaura cualquier registro a Activas o cárgalo en el generador.</p>
         </div>
       </div>
 
       <!-- KPIs Resumen Archivadas -->
       <div class="kpi-grid">
         <div class="kpi-card">
-          <div class="kpi-label">Cotizaciones Archivadas</div>
+          <div class="kpi-label">Total Archivados</div>
           <div class="kpi-value" id="kpiArchivadasCount">0</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Monto Total Archivado</div>
+          <div class="kpi-label">Cotizaciones Archivadas</div>
+          <div class="kpi-value" id="kpiArchivadasBudgetsCount">0</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Monto Total Cotizaciones Archivadas</div>
           <div class="kpi-value accent" id="kpiArchivadasTotal">$0.00</div>
         </div>
       </div>
@@ -1776,7 +587,13 @@
             <circle cx="11" cy="11" r="8" />
             <line x1="21" y1="21" x2="16.65" y2="16.65" />
           </svg>
-          <input type="text" id="searchArchivadasInput" placeholder="Buscar en archivadas por cliente, empresa o folio..." />
+          <input type="text" id="searchArchivadasInput" placeholder="Buscar en archivadas por folio, cliente, restaurante o empresa..." />
+        </div>
+
+        <div class="filter-pills" id="archivadasTypeFilters">
+          <button type="button" class="filter-pill-btn active" data-archive-filter="ALL">Todas</button>
+          <button type="button" class="filter-pill-btn" data-archive-filter="COTIZACIONES">Cotizaciones Archivadas</button>
+          <button type="button" class="filter-pill-btn" data-archive-filter="SOLICITUDES">Solicitudes Web Archivadas</button>
         </div>
       </div>
 
@@ -1852,29 +669,42 @@
     let solicitudesWebList = [];
     let presupuestosList = [];
     let solicitudesStatusFilter = "ALL";
+    let activasStatusFilter = "ALL";
+    let archivadasTypeFilter = "ALL";
     let currentEditingBudgetId = null;
+    let currentEditingBudgetArchived = false;
     let linkedSolicitudId = null;
 
-    // Almacén en memoria de las imágenes base64 actuales del generador
+    // Almacén en memoria de las imágenes base64 actuales del generador (alta calidad para PDF)
     const generatorImages = {
       render: "",
       fotos: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "" },
       ejemplos: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "" },
       panoramica: { 1: false, 2: false, 3: false, 4: false, 5: false, 6: false }
     };
-
-    const formatearMoneda = (valor) =>
-      "$" + Number(valor || 0).toLocaleString("es-MX", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-
-    function escapeHtml(str) {
-      return String(str ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;");
-    }
-
-    function formatDateDisplay(item) {
+// ... existing code ... -->
+    function formatDateDisplay(item, customIsoField = null) {
+      if (customIsoField && item[customIsoField]) {
+        const dCustom = new Date(item[customIsoField]);
+        if (!isNaN(dCustom.getTime())) {
+          return dCustom.toLocaleString("es-MX", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+          });
+        }
+      }
+      if (item.fechaCreacion && typeof item.fechaCreacion.toDate === "function") {
+        return item.fechaCreacion.toDate().toLocaleString("es-MX", {
+          day: "2-digit",
+          month: "short",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit"
+        });
+      }
       if (item.createdAt && typeof item.createdAt.toDate === "function") {
         return item.createdAt.toDate().toLocaleString("es-MX", {
           day: "2-digit",
@@ -1884,8 +714,9 @@
           minute: "2-digit"
         });
       }
-      if (item.fechaRegistroISO || item.updatedAtISO || item.createdAtISO) {
-        const d = new Date(item.updatedAtISO || item.createdAtISO || item.fechaRegistroISO);
+      const iso = item.updatedAtISO || item.createdAtISO || item.fechaRegistroISO || item.fechaCreacion;
+      if (iso) {
+        const d = new Date(iso);
         if (!isNaN(d.getTime())) {
           return d.toLocaleString("es-MX", {
             day: "2-digit",
@@ -1900,543 +731,75 @@
     }
 
     function getTimestampMs(item) {
+      if (item.fechaCreacion && typeof item.fechaCreacion.toMillis === "function") {
+        return item.fechaCreacion.toMillis();
+      }
       if (item.createdAt && typeof item.createdAt.toMillis === "function") {
         return item.createdAt.toMillis();
       }
-      const iso = item.updatedAtISO || item.createdAtISO || item.fechaRegistroISO;
+      const iso = item.archivedAtISO || item.updatedAtISO || item.createdAtISO || item.fechaRegistroISO || item.fechaCreacion;
       if (iso) {
         const t = new Date(iso).getTime();
         if (!isNaN(t)) return t;
       }
       return 0;
     }
-
-    // ==========================================================================
-    // 3. SISTEMA DE TOASTS & MODAL DE CONFIRMACIÓN PERSONALIZADO
-    // ==========================================================================
-    function showToast(message, type = "info") {
-      const container = document.getElementById("toastContainer");
-      const toast = document.createElement("div");
-      toast.className = `toast-item ${type}`;
-      toast.textContent = message;
-      container.appendChild(toast);
-      setTimeout(() => {
-        toast.style.opacity = "0";
-        toast.style.transform = "translateX(20px)";
-        toast.style.transition = "all 0.25s ease";
-        setTimeout(() => toast.remove(), 260);
-      }, 3400);
-    }
-
-    const confirmModal = document.getElementById("confirmModal");
-    let confirmResolveCallback = null;
-
-    function openConfirmModal({ title, message, confirmText = "Confirmar", isDanger = false }) {
-      document.getElementById("confirmModalTitle").textContent = title;
-      document.getElementById("confirmModalMessage").textContent = message;
-      const acceptBtn = document.getElementById("confirmModalAcceptBtn");
-      acceptBtn.textContent = confirmText;
-      if (isDanger) {
-        acceptBtn.classList.add("danger");
-      } else {
-        acceptBtn.classList.remove("danger");
-      }
-      confirmModal.classList.add("open");
-
-      return new Promise((resolve) => {
-        confirmResolveCallback = resolve;
-      });
-    }
-
-    function closeConfirmModal(result) {
-      confirmModal.classList.remove("open");
-      if (confirmResolveCallback) {
-        confirmResolveCallback(result);
-        confirmResolveCallback = null;
-      }
-    }
-
-    document.getElementById("confirmModalCancelBtn").addEventListener("click", () => closeConfirmModal(false));
-    document.getElementById("confirmModalAcceptBtn").addEventListener("click", () => closeConfirmModal(true));
-    confirmModal.addEventListener("click", (e) => {
-      if (e.target === confirmModal) closeConfirmModal(false);
-    });
-
-    function setSyncStatus(isOnline, labelText) {
-      const pill = document.getElementById("firebaseSyncPill");
-      const textEl = document.getElementById("firebaseSyncText");
-      textEl.textContent = labelText;
-      if (isOnline) {
-        pill.classList.remove("offline");
-      } else {
-        pill.classList.add("offline");
-      }
-    }
-
-    // ==========================================================================
-    // 4. NAVEGACIÓN ENTRE LAS 4 PESTAÑAS DE ONEGA MUEBLES CLOUD
-    // ==========================================================================
-    const tabBtns = document.querySelectorAll(".cloud-tab-btn");
-    const viewSections = document.querySelectorAll(".view-section");
-
-    function switchCloudView(viewKey) {
-      tabBtns.forEach((btn) => {
-        btn.classList.toggle("active", btn.dataset.view === viewKey);
-      });
-      viewSections.forEach((sec) => {
-        sec.classList.toggle("active", sec.id === `view-${viewKey}`);
-      });
-      if (viewKey === "generador") {
-        adjustPreviewScale();
-      }
-    }
-
-    tabBtns.forEach((btn) => {
-      btn.addEventListener("click", () => switchCloudView(btn.dataset.view));
-    });
-
-    // ==========================================================================
-    // 5. ESCALADO RESPONSIVO DE LA VISTA PREVIA DE 800PX EN PANTALLAS CHICAS
-    // ==========================================================================
-    function adjustPreviewScale() {
-      const outer = document.getElementById("previewContainerOuter");
-      const wrapper = document.getElementById("previewScaleWrapper");
-      const docEl = document.getElementById("documento-imagen");
-      if (!outer || !wrapper || !docEl) return;
-
-      const availableWidth = outer.clientWidth - 24;
-      if (availableWidth < 800 && availableWidth > 100) {
-        const scale = availableWidth / 800;
-        wrapper.style.transform = `scale(${scale})`;
-        wrapper.style.height = `${docEl.offsetHeight * scale}px`;
-      } else {
-        wrapper.style.transform = "none";
-        wrapper.style.height = "auto";
-      }
-    }
-
-    window.addEventListener("resize", adjustPreviewScale);
-
-    // ==========================================================================
-    // 6. GENERADOR DE COTIZACIONES: BLOQUES, CÁLCULOS E IMÁGENES
-    // ==========================================================================
+// ... existing code ... -->
     function generarNuevoFolio() {
       const folioAleatorio = "#ONG-" + Math.floor(Math.random() * 900 + 100);
       document.getElementById("input-folio").value = folioAleatorio;
       document.getElementById("out-folio").innerText = folioAleatorio;
     }
 
-    function setEditingMode(budgetId, folioStr) {
+    function setEditingMode(budgetId, folioStr, isArchived = false) {
       currentEditingBudgetId = budgetId;
+      currentEditingBudgetArchived = Boolean(isArchived);
       const banner = document.getElementById("editingBanner");
       const saveBtn = document.getElementById("btnGuardarCloud");
       if (budgetId) {
         document.getElementById("editingFolioLabel").textContent = folioStr || "#ONG-100";
         banner.classList.add("visible");
-        saveBtn.innerHTML = `<span>💾 Actualizar en Activas (Cloud)</span>`;
+        saveBtn.innerHTML = `<span>💾 Actualizar en Cotizaciones Activas</span>`;
       } else {
         banner.classList.remove("visible");
-        saveBtn.innerHTML = `<span>☁️ Guardar en Activas (Cloud)</span>`;
+        saveBtn.innerHTML = `<span>💾 Guardar en Cotizaciones Activas</span>`;
       }
     }
 
     document.getElementById("cancelEditModeBtn").addEventListener("click", () => {
-      setEditingMode(null, "");
+      setEditingMode(null, "", false);
       generarNuevoFolio();
       showToast("Modo creación nueva activado", "info");
     });
 
+    document.getElementById("bannerSaveChangesBtn").addEventListener("click", () => {
+      guardarPresupuestoEnCloud({ silentToast: false });
+    });
+
     function construirBloquesProyectos() {
-      const formContainer = document.getElementById("forms-proyectos-container");
-      const outputContainer = document.getElementById("outputs-proyectos-container");
-      formContainer.innerHTML = "";
-      outputContainer.innerHTML = "";
-
-      for (let i = 1; i <= 6; i++) {
-        formContainer.innerHTML += `
-          <div id="form-proyecto-${i}" class="proyecto-form-block">
-            <h4>🛋️ Mueble / Partida ${i}</h4>
-            <div class="form-group" style="display: flex; gap: 10px;">
-              <div style="flex: 1;">
-                <label for="input-cant-${i}">Cantidad</label>
-                <input type="number" id="input-cant-${i}" class="form-control" value="1" min="1" />
-              </div>
-              <div style="flex: 2;">
-                <label for="input-precio-${i}">Precio Unit. (MXN)</label>
-                <input type="number" id="input-precio-${i}" class="form-control" placeholder="Ej. 4500" min="0" />
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="label-with-btn">
-                <label for="input-foto-${i}">Foto del Mueble / Referencia</label>
-                <span class="btn-clear-img" id="btn-clear-foto-${i}">🗑️ BORRAR</span>
-              </div>
-              <input type="file" id="input-foto-${i}" class="form-control" accept="image/*" />
-            </div>
-            <div class="form-group">
-              <div class="label-with-btn">
-                <label for="input-ejemplo-${i}">Muestra de Tela / Acabado (Opcional)</label>
-                <span class="btn-clear-img" id="btn-clear-ejemplo-${i}">🗑️ BORRAR</span>
-              </div>
-              <input type="file" id="input-ejemplo-${i}" class="form-control" accept="image/*" />
-            </div>
-            <div class="form-group">
-              <label for="input-desc-${i}">Descripción del Trabajo (Medidas, madera, tapicería...)</label>
-              <textarea id="input-desc-${i}" class="form-control" placeholder="Ej. Booth curvo a la medida en estructura de pino estufado, espuma 30 kg/m³, tapizado en vinipiel grado hospitalidad..."></textarea>
-            </div>
-          </div>
-        `;
-
-        outputContainer.innerHTML += `
-          <div class="content-grid" id="box-proyecto-${i}">
-            <div class="imagenes-col">
-              <div class="img-container ref-container">
-                <span id="placeholder-${i}" style="color: #9ca3af; font-size: 12px;">Sube foto del mueble ${i}</span>
-                <img id="out-foto-${i}" src="" alt="Mueble ${i}" />
-              </div>
-              <div class="img-container ej-container" id="box-ejemplo-${i}" style="display: none;">
-                <div class="badge-ejemplo">MUESTRA / ACABADO SELECCIONADO</div>
-                <img id="out-ejemplo-${i}" src="" alt="Muestra ${i}" />
-              </div>
-            </div>
-            <div class="detalles-box">
-              <div>
-                <h3>Detalles del Trabajo (${i})</h3>
-                <p id="out-desc-${i}">Descripción del mobiliario bajo diseño...</p>
-              </div>
-              <div class="subtotal-proyecto-box">
-                <span>Cantidad: <b id="out-cant-${i}">1</b></span>
-                <span>Subtotal: <b id="out-subtotal-proy-${i}">$0.00</b></span>
-              </div>
-            </div>
-          </div>
-        `;
-      }
-
-      // Enlazar eventos de inputs de partidas 1..6
-      for (let i = 1; i <= 6; i++) {
-        document.getElementById(`input-cant-${i}`).addEventListener("input", actualizarVista);
-        document.getElementById(`input-precio-${i}`).addEventListener("input", actualizarVista);
-        document.getElementById(`input-desc-${i}`).addEventListener("input", actualizarVista);
-
-        document.getElementById(`input-foto-${i}`).addEventListener("change", (e) => {
-          cargarImagenOptimizada(e, "foto", i);
-        });
-        document.getElementById(`btn-clear-foto-${i}`).addEventListener("click", () => {
-          borrarImagen("foto", i);
-        });
-
-        document.getElementById(`input-ejemplo-${i}`).addEventListener("change", (e) => {
-          cargarImagenOptimizada(e, "ejemplo", i);
-        });
-        document.getElementById(`btn-clear-ejemplo-${i}`).addEventListener("click", () => {
-          borrarImagen("ejemplo", i);
-        });
-      }
-    }
-
-    function cambiarCantidadProyectos() {
-      const num = parseInt(document.getElementById("num-proyectos").value, 10) || 1;
-      for (let i = 1; i <= 6; i++) {
-        document.getElementById(`form-proyecto-${i}`).style.display = i <= num ? "block" : "none";
-        document.getElementById(`box-proyecto-${i}`).style.display = i <= num ? "flex" : "none";
-      }
-      actualizarVista();
-    }
-
-    function calcularTotalesActuales() {
-      const num = parseInt(document.getElementById("num-proyectos").value, 10) || 1;
-      let subtotalGlobal = 0;
-      const partidas = [];
-
-      for (let i = 1; i <= num; i++) {
-        const cant = Math.max(1, parseFloat(document.getElementById(`input-cant-${i}`).value) || 1);
-        const precioUnit = Math.max(0, parseFloat(document.getElementById(`input-precio-${i}`).value) || 0);
-        const descripcion = document.getElementById(`input-desc-${i}`).value.trim();
-        const subtotalProy = cant * precioUnit;
-        subtotalGlobal += subtotalProy;
-
-        partidas.push({
-          numero: i,
-          cantidad: cant,
-          precioUnitario: precioUnit,
-          subtotal: subtotalProy,
-          descripcion,
-          fotoBase64: generatorImages.fotos[i] || "",
-          ejemploBase64: generatorImages.ejemplos[i] || "",
-          esPanoramica: Boolean(generatorImages.panoramica[i])
-        });
-      }
-
-      let descuento = Math.max(0, parseFloat(document.getElementById("input-descuento").value) || 0);
-      if (descuento > subtotalGlobal) descuento = subtotalGlobal;
-
-      const subtotalConDescuento = subtotalGlobal - descuento;
-      const ivaGlobal = subtotalConDescuento * 0.16;
-      const totalFinal = subtotalConDescuento + ivaGlobal;
-
-      return {
-        numProyectos: num,
-        partidas,
-        subtotalGlobal,
-        descuento,
-        subtotalConDescuento,
-        ivaGlobal,
-        totalFinal
-      };
-    }
-
-    function actualizarVista() {
-      const folio = document.getElementById("input-folio").value.trim() || "#ONG-100";
-      const cliente = document.getElementById("input-cliente").value.trim() || "Nombre del Cliente";
-      const empresa = document.getElementById("input-empresa").value.trim();
-      const telefono = document.getElementById("input-telefono").value.trim();
-
-      document.getElementById("out-folio").innerText = folio;
-      document.getElementById("out-cliente").innerText = cliente;
-
-      const empresaSub = document.getElementById("out-empresa-sub");
-      if (empresa) {
-        empresaSub.textContent = `Establecimiento / Empresa: ${empresa}`;
-        empresaSub.style.display = "block";
-      } else {
-        empresaSub.style.display = "none";
-      }
-
-      const telSub = document.getElementById("out-telefono-sub");
-      if (telefono) {
-        telSub.textContent = `Tel / WhatsApp: ${telefono}`;
-        telSub.style.display = "block";
-      } else {
-        telSub.style.display = "none";
-      }
-
-      const calc = calcularTotalesActuales();
-
-      for (let i = 1; i <= 6; i++) {
-        if (i <= calc.numProyectos) {
-          const p = calc.partidas[i - 1];
-          document.getElementById(`out-desc-${i}`).innerText = p.descripcion || "Descripción del mobiliario bajo diseño...";
-          document.getElementById(`out-cant-${i}`).innerText = p.cantidad;
-          document.getElementById(`out-subtotal-proy-${i}`).innerText = formatearMoneda(p.subtotal);
-        }
-      }
-
-      document.getElementById("out-subtotal-global").innerText = formatearMoneda(calc.subtotalGlobal);
-
-      const rowDescuento = document.getElementById("row-descuento");
-      const rowSubtotalDesc = document.getElementById("row-subtotal-desc");
-      if (calc.descuento > 0) {
-        rowDescuento.style.display = "flex";
-        document.getElementById("out-descuento").innerText = "-" + formatearMoneda(calc.descuento);
-        rowSubtotalDesc.style.display = "flex";
-        document.getElementById("out-subtotal-desc").innerText = formatearMoneda(calc.subtotalConDescuento);
-      } else {
-        rowDescuento.style.display = "none";
-        rowSubtotalDesc.style.display = "none";
-      }
-
-      document.getElementById("out-iva").innerText = formatearMoneda(calc.ivaGlobal);
-      document.getElementById("out-total-final").innerText = formatearMoneda(calc.totalFinal);
-
-      const garantia = document.getElementById("input-garantia").value;
-      const instalacion = document.getElementById("input-instalacion").value.trim();
-      document.getElementById("wrap-garantia").style.display = garantia ? "block" : "none";
-      document.getElementById("out-garantia").innerText = garantia;
-      document.getElementById("wrap-instalacion").style.display = instalacion ? "block" : "none";
-      document.getElementById("out-instalacion").innerText = instalacion;
-      document.getElementById("box-condiciones").style.display = garantia || instalacion ? "flex" : "none";
-
-      requestAnimationFrame(adjustPreviewScale);
-    }
-
-    // Optimizador de imagen en alta calidad para vista previa y PDF
-    function cargarImagenOptimizada(event, tipo, index = null) {
-      const file = event.target.files[0];
-      if (!file) {
-        borrarImagen(tipo, index);
-        return;
-      }
-
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        const tempImg = new Image();
-        tempImg.onload = function () {
-          const MAX_WIDTH = 1400;
-          let w = tempImg.width;
-          let h = tempImg.height;
-          const esPanoramica = w / h > 1.6;
-
-          if (w > MAX_WIDTH || h > MAX_WIDTH) {
-            if (w > h) {
-              h = Math.round((h * MAX_WIDTH) / w);
-              w = MAX_WIDTH;
-            } else {
-              w = Math.round((w * MAX_WIDTH) / h);
-              h = MAX_WIDTH;
-            }
-          }
-
-          const canvas = document.createElement("canvas");
-          canvas.width = w;
-          canvas.height = h;
-          const ctx = canvas.getContext("2d");
-          ctx.imageSmoothingEnabled = true;
-          ctx.imageSmoothingQuality = "high";
-          ctx.drawImage(tempImg, 0, 0, w, h);
-
-          const base64Optimizada = canvas.toDataURL("image/jpeg", 0.9);
-          aplicarImagenEnUI(tipo, index, base64Optimizada, esPanoramica);
-        };
-        tempImg.src = e.target.result;
-      };
-      reader.readAsDataURL(file);
-    }
-
-    function aplicarImagenEnUI(tipo, index, base64Str, esPanoramica = false) {
-      const hasImg = Boolean(base64Str && base64Str.startsWith("data:image"));
-
-      if (tipo === "render") {
-        generatorImages.render = hasImg ? base64Str : "";
-        const img = document.getElementById("out-render-img");
-        const box = document.getElementById("box-render-final");
-        const btnClear = document.getElementById("btn-clear-render");
-        img.src = hasImg ? base64Str : "";
-        img.style.display = hasImg ? "block" : "none";
-        box.style.display = hasImg ? "flex" : "none";
-        btnClear.style.display = hasImg ? "inline-block" : "none";
-      } else if (tipo === "foto" && index) {
-        generatorImages.fotos[index] = hasImg ? base64Str : "";
-        generatorImages.panoramica[index] = hasImg ? Boolean(esPanoramica) : false;
-        const img = document.getElementById(`out-foto-${index}`);
-        const placeholder = document.getElementById(`placeholder-${index}`);
-        const btnClear = document.getElementById(`btn-clear-foto-${index}`);
-        const gridBox = document.getElementById(`box-proyecto-${index}`);
-
-        img.src = hasImg ? base64Str : "";
-        img.style.display = hasImg ? "block" : "none";
-        placeholder.style.display = hasImg ? "none" : "block";
-        btnClear.style.display = hasImg ? "inline-block" : "none";
-        if (hasImg && esPanoramica) {
-          gridBox.classList.add("panoramico");
-        } else {
-          gridBox.classList.remove("panoramico");
-        }
-      } else if (tipo === "ejemplo" && index) {
-        generatorImages.ejemplos[index] = hasImg ? base64Str : "";
-        const img = document.getElementById(`out-ejemplo-${index}`);
-        const box = document.getElementById(`box-ejemplo-${index}`);
-        const btnClear = document.getElementById(`btn-clear-ejemplo-${index}`);
-
-        img.src = hasImg ? base64Str : "";
-        img.style.display = hasImg ? "block" : "none";
-        box.style.display = hasImg ? "flex" : "none";
-        btnClear.style.display = hasImg ? "inline-block" : "none";
-      }
-
-      requestAnimationFrame(adjustPreviewScale);
-    }
-
-    function borrarImagen(tipo, index = null) {
-      if (tipo === "render") {
-        document.getElementById("input-render").value = "";
-        aplicarImagenEnUI("render", null, "", false);
-      } else if (tipo === "foto" && index) {
-        document.getElementById(`input-foto-${index}`).value = "";
-        aplicarImagenEnUI("foto", index, "", false);
-      } else if (tipo === "ejemplo" && index) {
-        document.getElementById(`input-ejemplo-${index}`).value = "";
-        aplicarImagenEnUI("ejemplo", index, "", false);
-      }
-    }
-
-    function resetearFormularioSilencioso() {
-      document.getElementById("input-filename").value = "";
-      document.getElementById("input-cliente").value = "";
-      document.getElementById("input-empresa").value = "";
-      document.getElementById("input-telefono").value = "";
-      document.getElementById("input-garantia").value = "";
-      document.getElementById("input-instalacion").value = "";
-      document.getElementById("input-descuento").value = "";
-      document.getElementById("num-proyectos").value = "1";
-
-      for (let i = 1; i <= 6; i++) {
-        document.getElementById(`input-cant-${i}`).value = "1";
-        document.getElementById(`input-precio-${i}`).value = "";
-        document.getElementById(`input-desc-${i}`).value = "";
-        borrarImagen("foto", i);
-        borrarImagen("ejemplo", i);
-      }
-
+// ... existing code ... -->
       borrarImagen("render", null);
-      setEditingMode(null, "");
+      setEditingMode(null, "", false);
       linkedSolicitudId = null;
       generarNuevoFolio();
       cambiarCantidadProyectos();
     }
-
-    document.getElementById("btn-limpiar-form").addEventListener("click", async () => {
-      const ok = await openConfirmModal({
-        title: "Limpiar Formulario",
-        message: "¿Deseas limpiar todos los campos e imágenes actuales para iniciar una nueva cotización?",
-        confirmText: "Sí, limpiar",
-        isDanger: true
-      });
-      if (!ok) return;
-
-      resetearFormularioSilencioso();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      showToast("Formulario listo para nueva cotización", "info");
-    });
-
-    // ==========================================================================
-    // 7. COMPRESIÓN SEGURA PARA FIRESTORE (EVITA EXCEDER LÍMITE DE 1MB)
-    // ==========================================================================
-    function recompressDataUrl(dataUrl, maxDim, quality) {
-      return new Promise((resolve) => {
-        if (!dataUrl || !dataUrl.startsWith("data:image")) {
-          resolve("");
-          return;
-        }
-        const img = new Image();
-        img.onload = () => {
-          let w = img.width;
-          let h = img.height;
-          if (w > maxDim || h > maxDim) {
-            if (w > h) {
-              h = Math.round((h * maxDim) / w);
-              w = maxDim;
-            } else {
-              w = Math.round((w * maxDim) / h);
-              h = maxDim;
-            }
-          }
-          const canvas = document.createElement("canvas");
-          canvas.width = w;
-          canvas.height = h;
-          const ctx = canvas.getContext("2d");
-          ctx.drawImage(img, 0, 0, w, h);
-          resolve(canvas.toDataURL("image/jpeg", quality));
-        };
-        img.onerror = () => resolve("");
-        img.src = dataUrl;
-      });
-    }
-
+// ... existing code ... -->
     async function prepararPayloadSeguroFirestore(rawPayload) {
-      // Clonamos el objeto para comprimir imágenes si el tamaño JSON supera 820 KB
+      // Clonamos el objeto para comprimir imágenes a 650px / 0.72 manteniendo intacta la memoria para PDF
       const clone = JSON.parse(JSON.stringify(rawPayload));
-      const maxBytes = 820 * 1024;
+      const maxBytes = 840 * 1024;
 
       const levels = [
-        { maxDim: 900, quality: 0.78 },
-        { maxDim: 680, quality: 0.65 },
-        { maxDim: 480, quality: 0.55 }
+        { maxDim: 650, quality: 0.72 },
+        { maxDim: 500, quality: 0.6 },
+        { maxDim: 380, quality: 0.5 }
       ];
 
-      for (const lvl of levels) {
+      for (let idx = 0; idx < levels.length; idx++) {
+        const lvl = levels[idx];
         const currentSize = new TextEncoder().encode(JSON.stringify(clone)).length;
-        if (currentSize <= maxBytes) break;
+        if (idx > 0 && currentSize <= maxBytes) break;
 
         if (clone.renderGlobalBase64) {
           clone.renderGlobalBase64 = await recompressDataUrl(clone.renderGlobalBase64, lvl.maxDim, lvl.quality);
@@ -2457,29 +820,30 @@
     // ==========================================================================
     // 8. GUARDAR PRESUPUESTO EN FIRESTORE ("onega_presupuestos")
     // ==========================================================================
-    document.getElementById("btnGuardarCloud").addEventListener("click", async () => {
+    async function guardarPresupuestoEnCloud({ silentToast = false, autoMode = false } = {}) {
       if (!db) {
-        showToast("No hay conexión disponible con Firebase Firestore", "error");
-        return;
+        if (!silentToast) showToast("No hay conexión disponible con Firebase Firestore", "error");
+        return false;
       }
 
       const folio = document.getElementById("input-folio").value.trim() || "#ONG-100";
-      const cliente = document.getElementById("input-cliente").value.trim();
+      const clienteInput = document.getElementById("input-cliente").value.trim();
       const empresa = document.getElementById("input-empresa").value.trim();
       const telefono = document.getElementById("input-telefono").value.trim();
       const filename = document.getElementById("input-filename").value.trim();
       const garantia = document.getElementById("input-garantia").value;
       const instalacion = document.getElementById("input-instalacion").value.trim();
 
-      if (!cliente && !empresa) {
+      if (!clienteInput && !empresa && !autoMode) {
         showToast("Ingresa al menos el nombre del cliente o empresa antes de guardar", "error");
         document.getElementById("input-cliente").focus();
-        return;
+        return false;
       }
 
+      const clienteFinal = clienteInput || empresa || "Cliente General";
       const btn = document.getElementById("btnGuardarCloud");
       btn.disabled = true;
-      btn.innerHTML = `<span>⏳ Guardando en Cloud...</span>`;
+      btn.innerHTML = `<span>⏳ Guardando en Activas...</span>`;
 
       try {
         const calc = calcularTotalesActuales();
@@ -2487,7 +851,7 @@
 
         const rawPayload = {
           folio,
-          cliente: cliente || empresa,
+          cliente: clienteFinal,
           empresa,
           telefono,
           filename,
@@ -2510,31 +874,40 @@
 
         if (currentEditingBudgetId) {
           await updateDoc(doc(db, COL_PRESUPUESTOS, currentEditingBudgetId), safePayload);
-          showToast(`Presupuesto ${folio} actualizado en Activas`, "success");
+          setEditingMode(currentEditingBudgetId, folio, false);
+          if (!silentToast) showToast(`Cotización ${folio} actualizada en Activas`, "success");
         } else {
           const docRef = await addDoc(collection(db, COL_PRESUPUESTOS), {
             ...safePayload,
+            estadoPresupuesto: "Enviada",
             createdAt: serverTimestamp(),
             createdAtISO: nowIso
           });
-          setEditingMode(docRef.id, folio);
-          showToast(`Presupuesto ${folio} guardado en Cotizaciones Activas`, "success");
+          setEditingMode(docRef.id, folio, false);
+          if (!silentToast) showToast(`Cotización ${folio} guardada en Cotizaciones Activas`, "success");
         }
+        return true;
       } catch (saveErr) {
         console.error("Error guardando presupuesto en Firestore:", saveErr);
-        showToast("Error al guardar en Firestore. Verifica tu conexión.", "error");
+        if (!silentToast) showToast("Error al guardar en Firestore. Verifica tu conexión.", "error");
+        return false;
       } finally {
         btn.disabled = false;
-        setEditingMode(currentEditingBudgetId, folio);
+        setEditingMode(currentEditingBudgetId, folio, false);
       }
+    }
+
+    document.getElementById("btnGuardarCloud").addEventListener("click", () => {
+      guardarPresupuestoEnCloud({ silentToast: false, autoMode: false });
     });
 
     // ==========================================================================
     // 9. EXPORTACIÓN PDF DE ALTA CALIDAD (HTML2CANVAS + JSPDF)
     // ==========================================================================
-    document.getElementById("btnGenerarPdf").addEventListener("click", () => {
+    document.getElementById("btnGenerarPdf").addEventListener("click", async () => {
       const original = document.getElementById("documento-imagen");
       const btn = document.getElementById("btnGenerarPdf");
+      const autoSaveChecked = document.getElementById("autoSaveOnPdfCheckbox").checked;
       let filenameInput = document.getElementById("input-filename").value.trim();
       const folioClean = (document.getElementById("input-folio").value.trim() || "ONG").replace(/[^a-zA-Z0-9_-]/g, "");
       if (filenameInput === "") {
@@ -2543,6 +916,10 @@
 
       btn.innerHTML = "⏳ Renderizando PDF...";
       btn.disabled = true;
+
+      if (autoSaveChecked) {
+        await guardarPresupuestoEnCloud({ silentToast: true, autoMode: true });
+      }
 
       const contenedorFantasma = document.createElement("div");
       contenedorFantasma.style.position = "absolute";
@@ -2600,7 +977,12 @@
             btn.innerHTML = "✅ ¡PDF Creado con Éxito!";
             btn.style.backgroundColor = "#10b981";
             btn.style.color = "#ffffff";
-            showToast("PDF generado y descargado correctamente", "success");
+            showToast(
+              autoSaveChecked
+                ? "PDF generado y cotización guardada en Activas"
+                : "PDF generado y descargado correctamente",
+              "success"
+            );
 
             setTimeout(() => {
               btn.innerHTML = "📥 Generar PDF de Alta Calidad";
@@ -2632,6 +1014,18 @@
     // ==========================================================================
     // 10. SUSCRIPCIONES EN TIEMPO REAL FIRESTORE (onSnapshot)
     // ==========================================================================
+    function actualizarContadoresNavbar() {
+      const solicitudesActivas = solicitudesWebList.filter((s) => s.archivada !== true);
+      const solicitudesArchivadas = solicitudesWebList.filter((s) => s.archivada === true);
+      const presupuestosActivos = presupuestosList.filter((p) => p.archivada !== true);
+      const presupuestosArchivados = presupuestosList.filter((p) => p.archivada === true);
+
+      document.getElementById("count-solicitudes").textContent = solicitudesActivas.length;
+      document.getElementById("count-activas").textContent = presupuestosActivos.length;
+      document.getElementById("count-archivadas").textContent =
+        solicitudesArchivadas.length + presupuestosArchivados.length;
+    }
+
     function iniciarListenersTiempoReal() {
       if (!db) return;
 
@@ -2646,8 +1040,9 @@
           });
           items.sort((a, b) => getTimestampMs(b) - getTimestampMs(a));
           solicitudesWebList = items;
-          document.getElementById("count-solicitudes").textContent = items.length;
+          actualizarContadoresNavbar();
           renderSolicitudesWeb();
+          renderRegistrosArchivados();
         },
         (error) => {
           console.error("Error escuchando Solicitudes Web:", error);
@@ -2667,14 +1062,9 @@
           items.sort((a, b) => getTimestampMs(b) - getTimestampMs(a));
           presupuestosList = items;
 
-          const activas = items.filter((p) => !p.archivada);
-          const archivadas = items.filter((p) => Boolean(p.archivada));
-
-          document.getElementById("count-activas").textContent = activas.length;
-          document.getElementById("count-archivadas").textContent = archivadas.length;
-
+          actualizarContadoresNavbar();
           renderPresupuestosActivos();
-          renderPresupuestosArchivados();
+          renderRegistrosArchivados();
         },
         (error) => {
           console.error("Error escuchando Presupuestos:", error);
@@ -2683,9 +1073,57 @@
       );
     }
 
+    // Helper para confirmar eliminación en dos clics inline sin bloquear el navegador
+    function bindTwoClickDelete(buttonEl, onConfirmAction) {
+      let resetTimer = null;
+      buttonEl.addEventListener("click", async () => {
+        if (!buttonEl.classList.contains("confirming")) {
+          buttonEl.classList.add("confirming");
+          buttonEl.dataset.originalHtml = buttonEl.innerHTML;
+          buttonEl.innerHTML = "⚠️ ¿Confirmar?";
+          resetTimer = setTimeout(() => {
+            buttonEl.classList.remove("confirming");
+            if (buttonEl.dataset.originalHtml) {
+              buttonEl.innerHTML = buttonEl.dataset.originalHtml;
+            }
+          }, 3500);
+          return;
+        }
+
+        if (resetTimer) clearTimeout(resetTimer);
+        buttonEl.disabled = true;
+        buttonEl.innerHTML = "⏳...";
+        await onConfirmAction();
+      });
+    }
+
     // ==========================================================================
-    // 11. RENDERIZADO & ACCIONES DE "SOLICITUDES WEB"
+    // 11. RENDERIZADO & ACCIONES DE "SOLICITUDES WEB" (archivada !== true)
     // ==========================================================================
+    function normalizeSolicitudFields(item) {
+      const nombre = item.nombre || item.nombreCompleto || "Prospecto Web";
+      const empresa = item.empresa || "Establecimiento por definir";
+      const telefono = item.telefono || "";
+      const correo = item.email || item.correo || "No especificado";
+      const tipo = item.tipoProyecto || item.tipoEstablecimiento || "Proyecto";
+      const capacidad = item.capacidad || item.capacidadPiezas || "Por definir";
+      const planos =
+        typeof item.tienePlanos === "boolean"
+          ? item.tienePlanos
+            ? "Sí"
+            : "No"
+          : item.cuentaConPlanos || "No";
+      const notas = item.notas || item.notasProyecto || "";
+      const rawMob = item.mobiliario ?? item.mobiliarioRequerido;
+      const mobiliarioArr = Array.isArray(rawMob)
+        ? rawMob
+        : rawMob
+          ? [rawMob]
+          : ["Mobiliario bajo diseño"];
+
+      return { nombre, empresa, telefono, correo, tipo, capacidad, planos, notas, mobiliarioArr };
+    }
+
     function formatWhatsappUrl(phoneStr, clientName, folio) {
       const digits = String(phoneStr || "").replace(/\D/g, "");
       if (!digits) return null;
@@ -2696,25 +1134,65 @@
       return `https://wa.me/${fullNum}?text=${msg}`;
     }
 
+    function cargarSolicitudEnCotizador(item) {
+      const norm = normalizeSolicitudFields(item);
+      resetearFormularioSilencioso();
+      linkedSolicitudId = item.id;
+
+      const folioWeb = item.folio || "";
+      const cleanName = (norm.empresa || norm.nombre || "Proyecto").replace(/[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ_-]/g, "_");
+
+      document.getElementById("input-filename").value = `Cotizacion_${cleanName}`;
+      document.getElementById("input-cliente").value = norm.nombre;
+      document.getElementById("input-empresa").value = item.empresa || "";
+      document.getElementById("input-telefono").value = norm.telefono;
+
+      const numPartidas = Math.min(6, Math.max(1, norm.mobiliarioArr.length));
+      document.getElementById("num-proyectos").value = String(numPartidas);
+      cambiarCantidadProyectos();
+
+      norm.mobiliarioArr.slice(0, 6).forEach((rubro, idx) => {
+        const pIndex = idx + 1;
+        const extraDetalle = [
+          `${rubro} bajo diseño para ${norm.tipo}.`,
+          norm.capacidad && norm.capacidad !== "Por definir" ? `Capacidad / piezas: ${norm.capacidad}.` : "",
+          idx === 0 && norm.notas ? `Requerimientos del cliente: ${norm.notas}` : "",
+          idx === 0 && folioWeb ? `(Ref. Solicitud Web: ${folioWeb})` : ""
+        ]
+          .filter(Boolean)
+          .join("\n");
+
+        document.getElementById(`input-desc-${pIndex}`).value = extraDetalle;
+      });
+
+      actualizarVista();
+      switchCloudView("generador");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      showToast(`Datos de ${norm.nombre} cargados en el cotizador`, "success");
+    }
+
     function renderSolicitudesWeb() {
       const grid = document.getElementById("solicitudesGrid");
       const term = document.getElementById("searchSolicitudesInput").value.trim().toLowerCase();
 
-      const filtered = solicitudesWebList.filter((item) => {
-        const statusActual = item.estado || "Recibido en Taller";
+      const activasWeb = solicitudesWebList.filter((item) => item.archivada !== true);
+
+      const filtered = activasWeb.filter((item) => {
+        const norm = normalizeSolicitudFields(item);
+        const statusActual = item.estado || "Nuevo";
         if (solicitudesStatusFilter !== "ALL" && statusActual !== solicitudesStatusFilter) {
           return false;
         }
         if (!term) return true;
-        const blob = `${item.folio || ""} ${item.nombreCompleto || ""} ${item.empresa || ""} ${item.telefono || ""} ${item.tipoEstablecimiento || ""}`.toLowerCase();
+        const blob = `${item.folio || ""} ${norm.nombre} ${norm.empresa} ${norm.telefono} ${norm.tipo}`.toLowerCase();
         return blob.includes(term);
       });
 
       if (filtered.length === 0) {
         grid.innerHTML = `
           <div class="empty-state-box">
-            <h3>No se encontraron solicitudes web</h3>
-            <p>Los formularios enviados desde la página principal de Onega Muebles aparecerán aquí automáticamente en tiempo real.</p>
+            <h3>No hay solicitudes web activas</h3>
+            <p>Los formularios enviados desde la página principal de Onega Muebles aparecerán aquí en tiempo real.</p>
           </div>
         `;
         return;
@@ -2722,14 +1200,10 @@
 
       grid.innerHTML = filtered
         .map((item) => {
+          const norm = normalizeSolicitudFields(item);
           const folio = item.folio || item.id.slice(0, 8).toUpperCase();
-          const estado = item.estado || "Recibido en Taller";
-          const waUrl = formatWhatsappUrl(item.telefono, item.nombreCompleto, folio);
-          const mobiliarioArr = Array.isArray(item.mobiliarioRequerido)
-            ? item.mobiliarioRequerido
-            : item.mobiliarioRequerido
-              ? [item.mobiliarioRequerido]
-              : ["Por definir"];
+          const estado = item.estado || "Nuevo";
+          const waUrl = formatWhatsappUrl(norm.telefono, norm.nombre, folio);
 
           return `
             <article class="cloud-card">
@@ -2740,6 +1214,7 @@
                     <span class="date-tag">${escapeHtml(formatDateDisplay(item))}</span>
                   </div>
                   <select class="status-select" data-solicitud-status-id="${escapeHtml(item.id)}" aria-label="Estado de solicitud">
+                    <option value="Nuevo" ${estado === "Nuevo" ? "selected" : ""}>Nuevo</option>
                     <option value="Recibido en Taller" ${estado === "Recibido en Taller" ? "selected" : ""}>Recibido en Taller</option>
                     <option value="En Cotización" ${estado === "En Cotización" ? "selected" : ""}>En Cotización</option>
                     <option value="Cotizado" ${estado === "Cotizado" ? "selected" : ""}>Cotizado</option>
@@ -2748,47 +1223,51 @@
                 </div>
 
                 <div style="margin-top: 12px;">
-                  <h3 class="card-client-title">${escapeHtml(item.nombreCompleto || "Prospecto Web")}</h3>
-                  <p class="card-subtitle">${escapeHtml(item.empresa || "Establecimiento por definir")} · <strong>${escapeHtml(item.tipoEstablecimiento || "Proyecto")}</strong></p>
+                  <h3 class="card-client-title">${escapeHtml(norm.nombre)}</h3>
+                  <p class="card-subtitle">${escapeHtml(norm.empresa)} · <strong>${escapeHtml(norm.tipo)}</strong></p>
                 </div>
               </div>
 
               <div class="card-meta-list">
                 <div class="meta-item">
                   <span>Teléfono / WhatsApp</span>
-                  ${
-                    waUrl
-                      ? `<a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="whatsapp-link">💬 ${escapeHtml(item.telefono)}</a>`
-                      : `<strong>${escapeHtml(item.telefono || "No especificado")}</strong>`
-                  }
+                  <strong>${escapeHtml(norm.telefono || "No especificado")}</strong>
                 </div>
                 <div class="meta-item">
                   <span>Correo Electrónico</span>
-                  <strong>${escapeHtml(item.correo || "No especificado")}</strong>
+                  <strong>${escapeHtml(norm.correo)}</strong>
                 </div>
                 <div class="meta-item">
                   <span>Capacidad / Piezas</span>
-                  <strong>${escapeHtml(item.capacidadPiezas || "Por definir")}</strong>
+                  <strong>${escapeHtml(norm.capacidad)}</strong>
                 </div>
                 <div class="meta-item">
-                  <span>Planos / Apertura</span>
-                  <strong>Planos: ${escapeHtml(item.cuentaConPlanos || "No")} · ${escapeHtml(item.fechaApertura || "Sin fecha")}</strong>
+                  <span>Planos / Renders</span>
+                  <strong>${escapeHtml(norm.planos)}</strong>
                 </div>
               </div>
 
               <div class="furniture-badges">
-                ${mobiliarioArr.map((m) => `<span class="furniture-badge">${escapeHtml(m)}</span>`).join("")}
+                ${norm.mobiliarioArr.map((m) => `<span class="furniture-badge">${escapeHtml(m)}</span>`).join("")}
               </div>
 
               ${
-                item.notasProyecto
-                  ? `<div class="notes-box"><strong>Notas:</strong> ${escapeHtml(item.notasProyecto)}</div>`
+                norm.notas
+                  ? `<div class="notes-box"><strong>Notas:</strong> ${escapeHtml(norm.notas)}</div>`
                   : ""
               }
 
               <div class="card-actions-row">
                 <button type="button" class="btn-card-primary" data-pass-to-quote="${escapeHtml(item.id)}">
                   ⚡ Pasar al Cotizador
+                </button>
+                ${
+                  waUrl
+                    ? `<a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-card">💬 WhatsApp</a>`
+                    : ""
+                }
+                <button type="button" class="btn-card-archive" data-archive-solicitud="${escapeHtml(item.id)}">
+                  📦 Archivar
                 </button>
               </div>
             </article>
@@ -2818,53 +1297,34 @@
           const item = solicitudesWebList.find((s) => s.id === docId);
           if (!item) return;
 
-          resetearFormularioSilencioso();
-          linkedSolicitudId = item.id;
+          cargarSolicitudEnCotizador(item);
 
-          const folioWeb = item.folio || "";
-          const cleanName = (item.empresa || item.nombreCompleto || "Proyecto").replace(/[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ_-]/g, "_");
-
-          document.getElementById("input-filename").value = `Cotizacion_${cleanName}`;
-          document.getElementById("input-cliente").value = item.nombreCompleto || "";
-          document.getElementById("input-empresa").value = item.empresa || "";
-          document.getElementById("input-telefono").value = item.telefono || "";
-
-          const mobiliarioArr = Array.isArray(item.mobiliarioRequerido)
-            ? item.mobiliarioRequerido
-            : item.mobiliarioRequerido
-              ? [item.mobiliarioRequerido]
-              : ["Mobiliario bajo diseño"];
-
-          const numPartidas = Math.min(6, Math.max(1, mobiliarioArr.length));
-          document.getElementById("num-proyectos").value = String(numPartidas);
-          cambiarCantidadProyectos();
-
-          mobiliarioArr.slice(0, 6).forEach((rubro, idx) => {
-            const pIndex = idx + 1;
-            const extraDetalle = [
-              `${rubro} bajo diseño para ${item.tipoEstablecimiento || "establecimiento"}.`,
-              item.capacidadPiezas ? `Capacidad / alcance solicitado: ${item.capacidadPiezas}.` : "",
-              idx === 0 && item.notasProyecto ? `Requerimientos del cliente: ${item.notasProyecto}` : "",
-              idx === 0 && folioWeb ? `(Ref. Solicitud Web: ${folioWeb})` : ""
-            ]
-              .filter(Boolean)
-              .join("\n");
-
-            document.getElementById(`input-desc-${pIndex}`).value = extraDetalle;
-          });
-
-          actualizarVista();
-          switchCloudView("generador");
-          window.scrollTo({ top: 0, behavior: "smooth" });
-          showToast(`Datos de ${item.nombreCompleto || "prospecto"} cargados en el cotizador`, "success");
-
-          // Si estaba como "Recibido en Taller", actualizar automáticamente a "En Cotización"
-          if ((item.estado || "Recibido en Taller") === "Recibido en Taller" && db) {
+          const st = item.estado || "Nuevo";
+          if ((st === "Nuevo" || st === "Recibido en Taller") && db) {
             try {
               await updateDoc(doc(db, COL_SOLICITUDES, item.id), { estado: "En Cotización" });
             } catch (e) {
               console.warn("No se pudo cambiar estado automático:", e);
             }
+          }
+        });
+      });
+
+      // Eventos de "Archivar" Solicitud Web
+      grid.querySelectorAll("[data-archive-solicitud]").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const docId = btn.dataset.archiveSolicitud;
+          btn.disabled = true;
+          try {
+            await updateDoc(doc(db, COL_SOLICITUDES, docId), {
+              archivada: true,
+              archivedAtISO: new Date().toISOString()
+            });
+            showToast("Solicitud web archivada correctamente", "info");
+          } catch (err) {
+            console.error("Error archivando solicitud:", err);
+            btn.disabled = false;
+            showToast("No se pudo archivar la solicitud", "error");
           }
         });
       });
@@ -2886,7 +1346,7 @@
     // ==========================================================================
     function cargarPresupuestoEnGenerador(budget) {
       resetearFormularioSilencioso();
-      setEditingMode(budget.id, budget.folio || "#ONG-100");
+      setEditingMode(budget.id, budget.folio || "#ONG-100", Boolean(budget.archivada));
       linkedSolicitudId = budget.solicitudOrigenId || null;
 
       document.getElementById("input-filename").value = budget.filename || "";
@@ -2924,116 +1384,153 @@
       actualizarVista();
       switchCloudView("generador");
       window.scrollTo({ top: 0, behavior: "smooth" });
-      showToast(`Cotización ${budget.folio || ""} cargada para edición`, "info");
+      showToast(`Cotización ${budget.folio || ""} cargada en el generador`, "info");
     }
 
-    function buildBudgetCardHtml(budget, isArchivedView) {
-      const partidas = Array.isArray(budget.partidas) ? budget.partidas : [];
-      const resumenPartidas = partidas
-        .map((p) => `${p.cantidad || 1}x ${(p.descripcion || "Partida").slice(0, 48)}`)
-        .join(" · ");
+    function renderPresupuestosActivos() {
+      const grid = document.getElementById("activasGrid");
+      const term = document.getElementById("searchActivasInput").value.trim().toLowerCase();
+      const activasAll = presupuestosList.filter((p) => p.archivada !== true);
 
-      return `
-        <article class="cloud-card">
-          <div>
-            <div class="cloud-card-top">
+      const sumaTotal = activasAll.reduce((acc, item) => acc + (Number(item.totalFinal) || 0), 0);
+      const promedio = activasAll.length > 0 ? sumaTotal / activasAll.length : 0;
+
+      document.getElementById("kpiActivasCount").textContent = activasAll.length;
+      document.getElementById("kpiActivasTotal").textContent = formatearMoneda(sumaTotal);
+      document.getElementById("kpiActivasAvg").textContent = formatearMoneda(promedio);
+
+      const filtered = activasAll.filter((b) => {
+        const st = b.estadoPresupuesto || "Enviada";
+        if (activasStatusFilter !== "ALL" && st !== activasStatusFilter) {
+          return false;
+        }
+        if (!term) return true;
+        const blob = `${b.folio || ""} ${b.cliente || ""} ${b.empresa || ""}`.toLowerCase();
+        return blob.includes(term);
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-state-box">
+            <h3>Sin cotizaciones activas</h3>
+            <p>Usa el botón <strong>"Guardar en Cotizaciones Activas"</strong> dentro del Generador para almacenar tus presupuestos aquí.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered
+        .map((budget) => {
+          const partidas = Array.isArray(budget.partidas) ? budget.partidas : [];
+          const estadoPresupuesto = budget.estadoPresupuesto || "Enviada";
+          const resumenPartidas = partidas
+            .map((p) => `${p.cantidad || 1}x ${(p.descripcion || "Partida").slice(0, 48)}`)
+            .join(" · ");
+
+          return `
+            <article class="cloud-card">
               <div>
-                <span class="folio-tag">${escapeHtml(budget.folio || "#ONG-100")}</span>
-                <span class="date-tag">${escapeHtml(formatDateDisplay(budget))}</span>
+                <div class="cloud-card-top">
+                  <div>
+                    <span class="folio-tag">${escapeHtml(budget.folio || "#ONG-100")}</span>
+                    <span class="date-tag">${escapeHtml(formatDateDisplay(budget))}</span>
+                  </div>
+                  <select class="status-select" data-budget-status-id="${escapeHtml(budget.id)}" aria-label="Estado de cotización">
+                    <option value="Enviada" ${estadoPresupuesto === "Enviada" ? "selected" : ""}>Enviada</option>
+                    <option value="En Revisión" ${estadoPresupuesto === "En Revisión" ? "selected" : ""}>En Revisión</option>
+                    <option value="Aprobada" ${estadoPresupuesto === "Aprobada" ? "selected" : ""}>Aprobada</option>
+                    <option value="En Fabricación" ${estadoPresupuesto === "En Fabricación" ? "selected" : ""}>En Fabricación</option>
+                  </select>
+                </div>
+
+                <div style="margin-top: 12px;">
+                  <h3 class="card-client-title">${escapeHtml(budget.cliente || "Cliente")}</h3>
+                  <p class="card-subtitle">${escapeHtml(budget.empresa || "Proyecto a la medida")} ${budget.telefono ? `· ${escapeHtml(budget.telefono)}` : ""}</p>
+                </div>
               </div>
-              <span class="furniture-badge">${partidas.length} partida(s)</span>
-            </div>
 
-            <div style="margin-top: 12px;">
-              <h3 class="card-client-title">${escapeHtml(budget.cliente || "Cliente")}</h3>
-              <p class="card-subtitle">${escapeHtml(budget.empresa || "Proyecto a la medida")} ${budget.telefono ? `· ${escapeHtml(budget.telefono)}` : ""}</p>
-            </div>
-          </div>
+              ${
+                resumenPartidas
+                  ? `<div class="notes-box">${escapeHtml(resumenPartidas)}</div>`
+                  : ""
+              }
 
-          ${
-            resumenPartidas
-              ? `<div class="notes-box">${escapeHtml(resumenPartidas)}</div>`
-              : ""
+              <div class="budget-amount-bar">
+                <span>Total Final (${partidas.length} partida/s)</span>
+                <strong>${formatearMoneda(budget.totalFinal || 0)}</strong>
+              </div>
+
+              <div class="card-actions-row">
+                <button type="button" class="btn-card-primary" data-edit-budget="${escapeHtml(budget.id)}">
+                  ✏️ Cargar en Generador
+                </button>
+                <button type="button" class="btn-card-archive" data-archive-budget="${escapeHtml(budget.id)}">
+                  📦 Archivar
+                </button>
+                <button type="button" class="btn-card-danger" data-delete-budget="${escapeHtml(budget.id)}" data-delete-folio="${escapeHtml(budget.folio || "")}">
+                  🗑️ Eliminar
+                </button>
+              </div>
+            </article>
+          `;
+        })
+        .join("");
+
+      // Selector de estado rápido en Cotizaciones Activas
+      grid.querySelectorAll("[data-budget-status-id]").forEach((sel) => {
+        sel.addEventListener("change", async (e) => {
+          const id = e.target.dataset.budgetStatusId;
+          const nuevoEstado = e.target.value;
+          try {
+            await updateDoc(doc(db, COL_PRESUPUESTOS, id), {
+              estadoPresupuesto: nuevoEstado,
+              updatedAtISO: new Date().toISOString()
+            });
+            showToast(`Cotización marcada como "${nuevoEstado}"`, "success");
+          } catch (err) {
+            console.error(err);
+            showToast("Error al actualizar estado", "error");
           }
+        });
+      });
 
-          <div class="budget-amount-bar">
-            <span>Total Final (IVA Inc.)</span>
-            <strong>${formatearMoneda(budget.totalFinal || 0)}</strong>
-          </div>
-
-          <div class="card-actions-row">
-            <button type="button" class="btn-card-primary" data-edit-budget="${escapeHtml(budget.id)}">
-              ✏️ Abrir / Editar
-            </button>
-            ${
-              isArchivedView
-                ? `<button type="button" class="btn-card-secondary" data-restore-budget="${escapeHtml(budget.id)}">♻️ Restaurar a Activas</button>`
-                : `<button type="button" class="btn-card-secondary" data-archive-budget="${escapeHtml(budget.id)}">📦 Archivar</button>`
-            }
-            <button type="button" class="btn-card-danger" data-delete-budget="${escapeHtml(budget.id)}" data-delete-folio="${escapeHtml(budget.folio || "")}">
-              🗑️
-            </button>
-          </div>
-        </article>
-      `;
-    }
-
-    function attachBudgetCardEvents(containerEl) {
-      containerEl.querySelectorAll("[data-edit-budget]").forEach((btn) => {
+      // Cargar en Generador
+      grid.querySelectorAll("[data-edit-budget]").forEach((btn) => {
         btn.addEventListener("click", () => {
           const item = presupuestosList.find((b) => b.id === btn.dataset.editBudget);
           if (item) cargarPresupuestoEnGenerador(item);
         });
       });
 
-      containerEl.querySelectorAll("[data-archive-budget]").forEach((btn) => {
+      // Archivar Cotización Activa
+      grid.querySelectorAll("[data-archive-budget]").forEach((btn) => {
         btn.addEventListener("click", async () => {
           const id = btn.dataset.archiveBudget;
+          btn.disabled = true;
           try {
             await updateDoc(doc(db, COL_PRESUPUESTOS, id), {
               archivada: true,
+              archivedAtISO: new Date().toISOString(),
               updatedAtISO: new Date().toISOString()
             });
             showToast("Cotización movida a Archivadas", "info");
           } catch (err) {
             console.error(err);
+            btn.disabled = false;
             showToast("Error al archivar la cotización", "error");
           }
         });
       });
 
-      containerEl.querySelectorAll("[data-restore-budget]").forEach((btn) => {
-        btn.addEventListener("click", async () => {
-          const id = btn.dataset.restoreBudget;
-          try {
-            await updateDoc(doc(db, COL_PRESUPUESTOS, id), {
-              archivada: false,
-              updatedAtISO: new Date().toISOString()
-            });
-            showToast("Cotización restaurada a Activas", "success");
-          } catch (err) {
-            console.error(err);
-            showToast("Error al restaurar la cotización", "error");
-          }
-        });
-      });
-
-      containerEl.querySelectorAll("[data-delete-budget]").forEach((btn) => {
-        btn.addEventListener("click", async () => {
-          const id = btn.dataset.deleteBudget;
-          const folio = btn.dataset.deleteFolio || "seleccionada";
-          const confirmed = await openConfirmModal({
-            title: "Eliminar Cotización",
-            message: `¿Estás seguro de eliminar permanentemente la cotización ${folio} de Onega Muebles Cloud? Esta acción no se puede deshacer.`,
-            confirmText: "Eliminar Definitivamente",
-            isDanger: true
-          });
-          if (!confirmed) return;
-
+      // Eliminar Cotización (confirmación inline de dos clics)
+      grid.querySelectorAll("[data-delete-budget]").forEach((btn) => {
+        const id = btn.dataset.deleteBudget;
+        const folio = btn.dataset.deleteFolio || "";
+        bindTwoClickDelete(btn, async () => {
           try {
             await deleteDoc(doc(db, COL_PRESUPUESTOS, id));
             if (currentEditingBudgetId === id) {
-              setEditingMode(null, "");
+              setEditingMode(null, "", false);
             }
             showToast(`Cotización ${folio} eliminada`, "info");
           } catch (err) {
@@ -3044,72 +1541,262 @@
       });
     }
 
-    function renderPresupuestosActivos() {
-      const grid = document.getElementById("activasGrid");
-      const term = document.getElementById("searchActivasInput").value.trim().toLowerCase();
-      const activasAll = presupuestosList.filter((p) => !p.archivada);
-
-      const sumaTotal = activasAll.reduce((acc, item) => acc + (Number(item.totalFinal) || 0), 0);
-      const promedio = activasAll.length > 0 ? sumaTotal / activasAll.length : 0;
-
-      document.getElementById("kpiActivasCount").textContent = activasAll.length;
-      document.getElementById("kpiActivasTotal").textContent = formatearMoneda(sumaTotal);
-      document.getElementById("kpiActivasAvg").textContent = formatearMoneda(promedio);
-
-      const filtered = activasAll.filter((b) => {
-        if (!term) return true;
-        const blob = `${b.folio || ""} ${b.cliente || ""} ${b.empresa || ""}`.toLowerCase();
-        return blob.includes(term);
-      });
-
-      if (filtered.length === 0) {
-        grid.innerHTML = `
-          <div class="empty-state-box">
-            <h3>Sin cotizaciones activas</h3>
-            <p>Usa el botón <strong>"Guardar en Activas (Cloud)"</strong> dentro del Generador de Cotizaciones para almacenar tus presupuestos aquí.</p>
-          </div>
-        `;
-        return;
-      }
-
-      grid.innerHTML = filtered.map((b) => buildBudgetCardHtml(b, false)).join("");
-      attachBudgetCardEvents(grid);
-    }
-
-    function renderPresupuestosArchivados() {
-      const grid = document.getElementById("archivadasGrid");
-      const term = document.getElementById("searchArchivadasInput").value.trim().toLowerCase();
-      const archivadasAll = presupuestosList.filter((p) => Boolean(p.archivada));
-
-      const sumaTotal = archivadasAll.reduce((acc, item) => acc + (Number(item.totalFinal) || 0), 0);
-      document.getElementById("kpiArchivadasCount").textContent = archivadasAll.length;
-      document.getElementById("kpiArchivadasTotal").textContent = formatearMoneda(sumaTotal);
-
-      const filtered = archivadasAll.filter((b) => {
-        if (!term) return true;
-        const blob = `${b.folio || ""} ${b.cliente || ""} ${b.empresa || ""}`.toLowerCase();
-        return blob.includes(term);
-      });
-
-      if (filtered.length === 0) {
-        grid.innerHTML = `
-          <div class="empty-state-box">
-            <h3>No hay cotizaciones archivadas</h3>
-            <p>Cuando archives una cotización activa aparecerá en este historial.</p>
-          </div>
-        `;
-        return;
-      }
-
-      grid.innerHTML = filtered.map((b) => buildBudgetCardHtml(b, true)).join("");
-      attachBudgetCardEvents(grid);
-    }
-
     document.getElementById("searchActivasInput").addEventListener("input", renderPresupuestosActivos);
-    document.getElementById("searchArchivadasInput").addEventListener("input", renderPresupuestosArchivados);
+
+    document.querySelectorAll("#activasStatusFilters .filter-pill-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        activasStatusFilter = btn.dataset.activeStatus;
+        document.querySelectorAll("#activasStatusFilters .filter-pill-btn").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderPresupuestosActivos();
+      });
+    });
 
     // ==========================================================================
-    // 13. INICIALIZACIÓN AL CARGAR EL DOCUMENTO
+    // 13. VISTA UNIFICADA "ARCHIVADAS" (COTIZACIONES + SOLICITUDES WEB)
+    // ==========================================================================
+    function renderRegistrosArchivados() {
+      const grid = document.getElementById("archivadasGrid");
+      const term = document.getElementById("searchArchivadasInput").value.trim().toLowerCase();
+
+      const presupuestosArch = presupuestosList
+        .filter((p) => p.archivada === true)
+        .map((p) => ({ kind: "COTIZACION", data: p, sortMs: getTimestampMs(p) }));
+
+      const solicitudesArch = solicitudesWebList
+        .filter((s) => s.archivada === true)
+        .map((s) => ({ kind: "SOLICITUD", data: s, sortMs: getTimestampMs(s) }));
+
+      const totalUnificado = presupuestosArch.length + solicitudesArch.length;
+      const sumaCotizacionesArch = presupuestosArch.reduce(
+        (acc, entry) => acc + (Number(entry.data.totalFinal) || 0),
+        0
+      );
+
+      document.getElementById("kpiArchivadasCount").textContent = totalUnificado;
+      document.getElementById("kpiArchivadasBudgetsCount").textContent = presupuestosArch.length;
+      document.getElementById("kpiArchivadasTotal").textContent = formatearMoneda(sumaCotizacionesArch);
+
+      let combined = [];
+      if (archivadasTypeFilter === "ALL") {
+        combined = [...presupuestosArch, ...solicitudesArch];
+      } else if (archivadasTypeFilter === "COTIZACIONES") {
+        combined = [...presupuestosArch];
+      } else if (archivadasTypeFilter === "SOLICITUDES") {
+        combined = [...solicitudesArch];
+      }
+
+      combined.sort((a, b) => b.sortMs - a.sortMs);
+
+      const filtered = combined.filter((entry) => {
+        if (!term) return true;
+        if (entry.kind === "COTIZACION") {
+          const b = entry.data;
+          return `${b.folio || ""} ${b.cliente || ""} ${b.empresa || ""}`.toLowerCase().includes(term);
+        } else {
+          const norm = normalizeSolicitudFields(entry.data);
+          return `${entry.data.folio || ""} ${norm.nombre} ${norm.empresa} ${norm.telefono}`.toLowerCase().includes(term);
+        }
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-state-box">
+            <h3>No hay registros archivados</h3>
+            <p>Usa el botón <strong>"📦 Archivar"</strong> en Cotizaciones Activas o en Solicitudes Web para mover registros a este historial.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered
+        .map((entry) => {
+          if (entry.kind === "COTIZACION") {
+            const budget = entry.data;
+            const partidas = Array.isArray(budget.partidas) ? budget.partidas : [];
+            const fechaArch = formatDateDisplay(budget, "archivedAtISO");
+            const resumenPartidas = partidas
+              .map((p) => `${p.cantidad || 1}x ${(p.descripcion || "Partida").slice(0, 48)}`)
+              .join(" · ");
+
+            return `
+              <article class="cloud-card">
+                <div>
+                  <div class="cloud-card-top">
+                    <div>
+                      <span class="folio-tag">${escapeHtml(budget.folio || "#ONG-100")}</span>
+                      <span class="date-tag">Creada: ${escapeHtml(formatDateDisplay(budget))}</span>
+                    </div>
+                    <span class="archive-type-badge tipo-cotizacion">Cotización Archivada</span>
+                  </div>
+
+                  <div style="margin-top: 10px;">
+                    <span class="archived-date-pill">📦 Archivada: ${escapeHtml(fechaArch)}</span>
+                  </div>
+
+                  <div style="margin-top: 12px;">
+                    <h3 class="card-client-title">${escapeHtml(budget.cliente || "Cliente")}</h3>
+                    <p class="card-subtitle">${escapeHtml(budget.empresa || "Proyecto a la medida")} ${budget.telefono ? `· ${escapeHtml(budget.telefono)}` : ""}</p>
+                  </div>
+                </div>
+
+                ${resumenPartidas ? `<div class="notes-box">${escapeHtml(resumenPartidas)}</div>` : ""}
+
+                <div class="budget-amount-bar">
+                  <span>Total Final (${partidas.length} partida/s)</span>
+                  <strong>${formatearMoneda(budget.totalFinal || 0)}</strong>
+                </div>
+
+                <div class="card-actions-row">
+                  <button type="button" class="btn-card-primary" data-restore-item-kind="COTIZACION" data-restore-item-id="${escapeHtml(budget.id)}">
+                    ♻️ Restaurar a Activas
+                  </button>
+                  <button type="button" class="btn-card-secondary" data-edit-archived-budget="${escapeHtml(budget.id)}">
+                    ✏️ Cargar en Generador
+                  </button>
+                  <button type="button" class="btn-card-danger" data-delete-archived-kind="COTIZACION" data-delete-archived-id="${escapeHtml(budget.id)}" data-delete-archived-folio="${escapeHtml(budget.folio || "")}">
+                    🗑️ Eliminar
+                  </button>
+                </div>
+              </article>
+            `;
+          } else {
+            const item = entry.data;
+            const norm = normalizeSolicitudFields(item);
+            const folio = item.folio || item.id.slice(0, 8).toUpperCase();
+            const fechaArch = formatDateDisplay(item, "archivedAtISO");
+
+            return `
+              <article class="cloud-card">
+                <div>
+                  <div class="cloud-card-top">
+                    <div>
+                      <span class="folio-tag">${escapeHtml(folio)}</span>
+                      <span class="date-tag">Recibida: ${escapeHtml(formatDateDisplay(item))}</span>
+                    </div>
+                    <span class="archive-type-badge tipo-solicitud">Solicitud Web Archivada</span>
+                  </div>
+
+                  <div style="margin-top: 10px;">
+                    <span class="archived-date-pill">📦 Archivada: ${escapeHtml(fechaArch)}</span>
+                  </div>
+
+                  <div style="margin-top: 12px;">
+                    <h3 class="card-client-title">${escapeHtml(norm.nombre)}</h3>
+                    <p class="card-subtitle">${escapeHtml(norm.empresa)} · <strong>${escapeHtml(norm.tipo)}</strong></p>
+                  </div>
+                </div>
+
+                <div class="card-meta-list">
+                  <div class="meta-item">
+                    <span>Teléfono / WhatsApp</span>
+                    <strong>${escapeHtml(norm.telefono || "No especificado")}</strong>
+                  </div>
+                  <div class="meta-item">
+                    <span>Capacidad / Piezas</span>
+                    <strong>${escapeHtml(norm.capacidad)}</strong>
+                  </div>
+                </div>
+
+                <div class="furniture-badges">
+                  ${norm.mobiliarioArr.map((m) => `<span class="furniture-badge">${escapeHtml(m)}</span>`).join("")}
+                </div>
+
+                <div class="card-actions-row">
+                  <button type="button" class="btn-card-primary" data-restore-item-kind="SOLICITUD" data-restore-item-id="${escapeHtml(item.id)}">
+                    ♻️ Restaurar a Activas
+                  </button>
+                  <button type="button" class="btn-card-secondary" data-quote-archived-solicitud="${escapeHtml(item.id)}">
+                    ⚡ Pasar al Cotizador
+                  </button>
+                  <button type="button" class="btn-card-danger" data-delete-archived-kind="SOLICITUD" data-delete-archived-id="${escapeHtml(item.id)}" data-delete-archived-folio="${escapeHtml(folio)}">
+                    🗑️ Eliminar
+                  </button>
+                </div>
+              </article>
+            `;
+          }
+        })
+        .join("");
+
+      // Restaurar a Activas (Cotizaciones o Solicitudes Web)
+      grid.querySelectorAll("[data-restore-item-id]").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const id = btn.dataset.restoreItemId;
+          const kind = btn.dataset.restoreItemKind;
+          const targetCol = kind === "COTIZACION" ? COL_PRESUPUESTOS : COL_SOLICITUDES;
+          btn.disabled = true;
+
+          try {
+            await updateDoc(doc(db, targetCol, id), {
+              archivada: false,
+              updatedAtISO: new Date().toISOString()
+            });
+            showToast(
+              kind === "COTIZACION"
+                ? "Cotización restaurada a Cotizaciones Activas"
+                : "Solicitud web restaurada a Solicitudes Activas",
+              "success"
+            );
+          } catch (err) {
+            console.error(err);
+            btn.disabled = false;
+            showToast("Error al restaurar el registro", "error");
+          }
+        });
+      });
+
+      // Cargar cotización archivada en Generador
+      grid.querySelectorAll("[data-edit-archived-budget]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const item = presupuestosList.find((b) => b.id === btn.dataset.editArchivedBudget);
+          if (item) cargarPresupuestoEnGenerador(item);
+        });
+      });
+
+      // Pasar solicitud archivada al Cotizador
+      grid.querySelectorAll("[data-quote-archived-solicitud]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const item = solicitudesWebList.find((s) => s.id === btn.dataset.quoteArchivedSolicitud);
+          if (item) cargarSolicitudEnCotizador(item);
+        });
+      });
+
+      // Eliminar registro archivado (confirmación inline en dos clics)
+      grid.querySelectorAll("[data-delete-archived-id]").forEach((btn) => {
+        const id = btn.dataset.deleteArchivedId;
+        const kind = btn.dataset.deleteArchivedKind;
+        const folio = btn.dataset.deleteArchivedFolio || "";
+        const targetCol = kind === "COTIZACION" ? COL_PRESUPUESTOS : COL_SOLICITUDES;
+
+        bindTwoClickDelete(btn, async () => {
+          try {
+            await deleteDoc(doc(db, targetCol, id));
+            if (kind === "COTIZACION" && currentEditingBudgetId === id) {
+              setEditingMode(null, "", false);
+            }
+            showToast(`Registro ${folio} eliminado permanentemente`, "info");
+          } catch (err) {
+            console.error(err);
+            showToast("No se pudo eliminar el registro", "error");
+          }
+        });
+      });
+    }
+
+    document.getElementById("searchArchivadasInput").addEventListener("input", renderRegistrosArchivados);
+
+    document.querySelectorAll("#archivadasTypeFilters .filter-pill-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        archivadasTypeFilter = btn.dataset.archiveFilter;
+        document.querySelectorAll("#archivadasTypeFilters .filter-pill-btn").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderRegistrosArchivados();
+      });
+    });
+
+    // ==========================================================================
+    // 14. INICIALIZACIÓN AL CARGAR EL DOCUMENTO
     // ==========================================================================
     document.addEventListener("DOMContentLoaded", () => {
       const fecha = new Date();
