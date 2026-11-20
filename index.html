@@ -43,6 +43,13 @@
               vetaOscura: '#B88954',
               vetaClara: '#D4AA79',
               canto: '#9E7141',
+            },
+            tech: {
+              bg: '#070709',
+              surface: '#0E0F12',
+              panel: '#14161B',
+              line: 'rgba(255, 255, 255, 0.09)',
+              muted: '#9A9FA8',
             }
           }
         }
@@ -52,9 +59,11 @@
 
   <style>
     /* ==========================================================================
-       SISTEMA VISUAL EDITORIAL & TEXTURA UNIFORME DE MADERA — ONEGA MUEBLES
+       FUSIÓN: MINIMALISMO TECH + MADERA NATURAL — ONEGA MUEBLES
        ========================================================================== */
     :root {
+      --bg-tech: #070709;
+      --bg-tech-surface: #0E0F12;
       --bg-hueso: #F7F4EF;
       --bg-arena: #EDE6DA;
       --bg-arena-media: #E4DCCF;
@@ -64,19 +73,27 @@
       --wood-base: #C89B68;
     }
 
-    * {
+    *, *::before, *::after {
       box-sizing: border-box;
     }
 
     body {
-      background-color: var(--bg-hueso);
-      color: var(--ink-carbon);
+      background-color: var(--bg-tech);
+      color: #F4F5F7;
       font-family: 'Plus Jakarta Sans', sans-serif;
       overflow-x: hidden;
     }
 
-    /* Acabado uniforme de Madera Natural (#C89B68) con veta sutil y cantos biselados
-       Idéntico en los 4 cajones */
+    /* Retícula minimalista tech de fondo */
+    .tech-grid-bg {
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(217, 93, 36, 0.09), transparent 58%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 48px 48px, 48px 48px;
+    }
+
+    /* Acabado uniforme de Madera Natural (#C89B68) con veta sutil y cantos biselados */
     .natural-wood-panel {
       background-color: #C89B68;
       background-image:
@@ -109,25 +126,24 @@
         inset 0 1px 0 rgba(255, 245, 230, 0.62),
         inset 0 0 0 5px rgba(212, 170, 121, 0.25),
         inset 0 -3px 8px rgba(128, 88, 44, 0.32),
-        0 10px 24px -8px rgba(36, 30, 25, 0.18);
+        0 12px 28px -10px rgba(0, 0, 0, 0.55);
       transition:
         transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
         box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1),
         border-color 0.22s ease;
     }
 
-    /* Respuesta 2D pura y confiable en escritorio y móvil */
     .drawer-card-btn:hover .natural-wood-panel,
     .drawer-card-btn:focus-visible .natural-wood-panel,
     .drawer-card-btn.is-active-drawer .natural-wood-panel {
       transform: translateY(-4px);
-      border-color: #D95D24;
+      border-color: #FF7B3E;
       box-shadow:
         inset 0 1px 0 rgba(255, 248, 238, 0.78),
-        inset 0 0 0 5px rgba(217, 93, 36, 0.16),
+        inset 0 0 0 5px rgba(217, 93, 36, 0.22),
         inset 0 -3px 8px rgba(128, 88, 44, 0.28),
-        0 18px 30px -10px rgba(36, 30, 25, 0.24),
-        0 0 0 1px rgba(217, 93, 36, 0.38);
+        0 18px 34px -10px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(217, 93, 36, 0.55);
     }
 
     .drawer-card-btn:active .natural-wood-panel {
@@ -148,7 +164,7 @@
       background: linear-gradient(180deg, #9C4016 0%, #D95D24 100%);
       box-shadow:
         inset 0 1px 3px rgba(42, 18, 6, 0.38),
-        0 0 14px rgba(217, 93, 36, 0.45);
+        0 0 14px rgba(217, 93, 36, 0.55);
     }
 
     /* Borde superior de madera natural para el interior del cajón abierto */
@@ -164,7 +180,6 @@
       border-bottom: 1px solid #9E7141;
     }
 
-    /* Animación suave de apertura del cajón interior dentro del gabinete */
     .drawer-interior-reveal {
       animation: drawerSlideOpen 0.34s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
@@ -196,7 +211,6 @@
     }
 
     /* Texturas visuales del Muestrario Interactivo de Materiales (Cajón 01) */
-    /* 4 Maderas Naturales */
     .swatch-parota {
       background-color: #C4935E;
       background-image: repeating-linear-gradient(-3deg, rgba(134, 88, 42, 0.38) 0px, transparent 4px, rgba(218, 176, 125, 0.46) 13px);
@@ -214,7 +228,6 @@
       background-image: repeating-linear-gradient(-2deg, rgba(102, 58, 32, 0.42) 0px, transparent 3px, rgba(186, 130, 88, 0.38) 12px);
     }
 
-    /* 4 Tapicerías Comerciales */
     .swatch-vinipiel {
       background-color: #C95B2B;
       background-image: radial-gradient(rgba(72, 26, 10, 0.22) 1px, transparent 1px);
@@ -249,18 +262,18 @@
   </style>
 </head>
 
-<body class="bg-hueso text-carbon antialiased selection:bg-terracota selection:text-white">
+<body class="bg-tech-bg text-[#F4F5F7] tech-grid-bg antialiased selection:bg-terracota selection:text-white">
 
   <!-- ==========================================================================
-       1. BARRA DE NAVEGACIÓN SUPERIOR STICKY — ONEGA MUEBLES
+       1. BARRA DE NAVEGACIÓN SUPERIOR STICKY — MINIMALISTA TECH
        ========================================================================== -->
-  <header class="sticky top-0 z-40 bg-hueso/95 backdrop-blur-md border-b border-arena-borde">
+  <header class="sticky top-0 z-40 bg-tech-bg/85 backdrop-blur-md border-b border-tech-line">
     <div class="max-w-6xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between gap-4">
       
       <!-- Logo ONEGA MUEBLES -->
       <a href="#inicio" class="flex items-center gap-3.5 group focus:outline-none">
-        <div class="w-10 h-10 rounded-xl bg-arena border border-madera-canto/45 flex items-center justify-center shadow-sm group-hover:border-terracota transition">
-          <svg class="w-5 h-5 text-carbon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+        <div class="w-10 h-10 rounded-xl bg-tech-panel border border-tech-line flex items-center justify-center group-hover:border-terracota transition">
+          <svg class="w-5 h-5 text-[#F4F5F7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
             <rect x="4" y="4" width="16" height="6.5" rx="1.5"/>
             <rect x="4" y="13.5" width="16" height="6.5" rx="1.5"/>
             <line x1="10" y1="7.2" x2="14" y2="7.2" stroke="#D95D24" stroke-width="2" stroke-linecap="round"/>
@@ -268,17 +281,17 @@
           </svg>
         </div>
         <div>
-          <span class="block font-display text-lg sm:text-xl font-bold tracking-[0.12em] text-carbon-oscuro leading-none">
+          <span class="block font-display text-lg sm:text-xl font-bold tracking-[0.14em] text-white leading-none">
             ONEGA MUEBLES
           </span>
-          <span class="block text-[11px] font-medium tracking-wider text-carbon-suave mt-1">
+          <span class="block text-[11px] font-medium tracking-wider text-tech-muted mt-1">
             Carpintería &amp; Tapicería Contract
           </span>
         </div>
       </a>
 
       <!-- Enlaces de Navegación -->
-      <nav aria-label="Navegación principal" class="hidden md:flex items-center gap-7 font-display text-sm font-medium text-carbon">
+      <nav aria-label="Navegación principal" class="hidden md:flex items-center gap-7 font-display text-sm font-medium text-[#D0D4DC]">
         <a href="#inicio" class="hover:text-terracota transition py-1">Inicio</a>
         <a href="#cajones" class="hover:text-terracota transition py-1">Cajones</a>
         <button type="button" data-open-drawer="servicios" class="hover:text-terracota transition py-1 cursor-pointer">
@@ -293,71 +306,71 @@
       <!-- CTA Principal Terracota -->
       <div class="flex items-center gap-2.5">
         <button type="button" id="headerQuoteCtaBtn"
-          class="font-display px-4 sm:px-5 py-2.5 rounded-xl bg-terracota hover:bg-terracota-hover text-white text-xs sm:text-sm font-semibold tracking-wide shadow-sm transition cursor-pointer">
+          class="font-display px-4 sm:px-5 py-2.5 rounded-xl bg-terracota hover:bg-terracota-hover text-white text-xs sm:text-sm font-semibold tracking-wide transition cursor-pointer">
           Cotizar Proyecto
         </button>
       </div>
     </div>
 
     <!-- Barra rápida móvil -->
-    <div class="md:hidden border-t border-arena-borde bg-arena/65 px-4 py-2 flex items-center justify-around font-display text-xs font-medium text-carbon">
+    <div class="md:hidden border-t border-tech-line bg-tech-surface/90 px-4 py-2 flex items-center justify-around font-display text-xs font-medium text-[#C5C9D2]">
       <a href="#inicio" class="hover:text-terracota py-1">Inicio</a>
-      <span class="text-arena-borde">•</span>
+      <span class="text-white/15">•</span>
       <a href="#cajones" class="hover:text-terracota py-1">Cajones</a>
-      <span class="text-arena-borde">•</span>
+      <span class="text-white/15">•</span>
       <button type="button" data-open-drawer="servicios" class="hover:text-terracota py-1">Servicios</button>
-      <span class="text-arena-borde">•</span>
+      <span class="text-white/15">•</span>
       <a href="#proceso" class="hover:text-terracota py-1">Proceso</a>
     </div>
   </header>
 
 
   <!-- ==========================================================================
-       2. SECCIÓN HERO EDITORIAL — ONEGA MUEBLES
+       2. SECCIÓN HERO MINIMALISTA TECH — ONEGA MUEBLES
        ========================================================================== -->
   <main id="inicio">
-    <section class="max-w-5xl mx-auto px-4 sm:px-8 pt-12 sm:pt-16 pb-10 sm:pb-12 text-center">
+    <section class="max-w-5xl mx-auto px-4 sm:px-8 pt-14 sm:pt-18 pb-12 text-center">
       
-      <!-- Etiqueta Superior -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-arena border border-arena-borde text-terracota font-display text-[11px] sm:text-xs font-semibold tracking-[0.16em] uppercase mb-5">
+      <!-- Etiqueta Superior Técnica -->
+      <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-tech-panel border border-tech-line text-[#E5E7EB] font-display text-[11px] sm:text-xs font-medium tracking-[0.16em] uppercase mb-6">
         <span class="w-1.5 h-1.5 rounded-full bg-terracota"></span>
         <span>Onega Muebles · Mobiliario Bajo Diseño</span>
       </div>
 
       <!-- Titular Editorial Principal en Outfit -->
-      <h1 class="font-display text-3xl sm:text-5xl md:text-[54px] font-bold text-carbon-oscuro leading-[1.12] tracking-tight max-w-4xl mx-auto">
-        Mobiliario y sillería de alto tráfico diseñados a la medida de tu restaurante o bar.
+      <h1 class="font-display text-3xl sm:text-5xl md:text-[54px] font-bold text-white leading-[1.1] tracking-tight max-w-4xl mx-auto">
+        Mobiliario y sillería de alto tráfico diseñados a la medida de tu <span class="text-madera-vetaClara">restaurante o bar.</span>
       </h1>
 
       <!-- Subtítulo -->
-      <p class="mt-5 text-base sm:text-lg text-carbon-suave max-w-2xl mx-auto leading-relaxed">
-        Fabricamos booths, sillones, barras, mesas y mini bares con maderas sólidas estufadas y tapicería grado hospitalidad. Explora los <strong class="font-semibold text-carbon">4 cajones de nuestro taller</strong> para conocer nuestros acabados, especialidades y solicitar tu cotización.
+      <p class="mt-5 text-base sm:text-lg text-tech-muted max-w-2xl mx-auto leading-relaxed">
+        Fabricamos booths, sillones, barras, mesas y mini bares con maderas sólidas estufadas y tapicería grado hospitalidad. Explora los <strong class="font-semibold text-white">4 cajones de nuestro taller</strong> para conocer nuestros acabados, especialidades y solicitar tu cotización.
       </p>
 
       <!-- Dual CTAs -->
       <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3.5">
         <a href="#cajones"
-          class="font-display w-full sm:w-auto px-6 py-3.5 rounded-xl bg-arena hover:bg-arena-media text-carbon border border-arena-borde text-sm font-semibold transition">
+          class="font-display w-full sm:w-auto px-6 py-3.5 rounded-xl bg-tech-panel hover:bg-[#1B1E25] text-[#EAECEF] border border-tech-line text-sm font-semibold transition">
           Explorar Cajones ↓
         </a>
         <button type="button" id="heroQuoteCtaBtn"
-          class="font-display w-full sm:w-auto px-7 py-3.5 rounded-xl bg-terracota hover:bg-terracota-hover text-white text-sm font-semibold shadow-sm transition cursor-pointer">
+          class="font-display w-full sm:w-auto px-7 py-3.5 rounded-xl bg-terracota hover:bg-terracota-hover text-white text-sm font-semibold transition cursor-pointer">
           Cotizar Proyecto →
         </button>
       </div>
 
-      <!-- Badges de Hospitalidad -->
-      <div class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium text-carbon-suave">
-        <span class="flex items-center gap-1.5">
+      <!-- Badges Técnicos de Hospitalidad -->
+      <div class="mt-9 pt-6 border-t border-tech-line/70 flex flex-wrap items-center justify-center gap-x-7 gap-y-2.5 text-xs font-medium text-tech-muted">
+        <span class="flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-madera-base"></span>
           Ingeniería de Alto Tráfico
         </span>
-        <span class="flex items-center gap-1.5">
+        <span class="flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-terracota"></span>
           Tapicería Técnica Ignífuga / Antifluido
         </span>
-        <span class="flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-madera-base"></span>
+        <span class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-madera-vetaClara"></span>
           Tiempos Garantizados en Apertura
         </span>
       </div>
@@ -365,17 +378,18 @@
 
 
     <!-- ==========================================================================
-         3. GABINETE INTERACTIVO DE 4 CAJONES (2x2 CSS GRID PURO EN 2D)
+         3. GABINETE INTERACTIVO DE 4 CAJONES (MADERA NATURAL + MARCO TECH)
             + PANEL DE CAJÓN ABIERTO INTEGRADO DIRECTAMENTE DENTRO DEL GABINETE
          ========================================================================== -->
-    <section id="cajones" aria-labelledby="cabinet-heading" class="max-w-6xl mx-auto px-4 sm:px-8 pb-16 sm:pb-20 scroll-mt-24">
+    <section id="cajones" aria-labelledby="cabinet-heading" class="max-w-6xl mx-auto px-4 sm:px-8 pb-16 sm:pb-22 scroll-mt-24">
       <h2 id="cabinet-heading" class="sr-only">Mueble de 4 Cajones — Onega Muebles</h2>
 
-      <!-- Gabinete contenedor en Arena -->
-      <div class="rounded-3xl bg-arena border border-arena-borde p-4 sm:p-7 lg:p-9 shadow-[0_20px_50px_-20px_rgba(36,30,25,0.14)]">
+      <!-- Gabinete contenedor minimalista tech -->
+      <div class="rounded-3xl bg-tech-surface border border-tech-line p-4 sm:p-7 lg:p-9 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.8)]">
         
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-5 mb-5 border-b border-arena-borde text-xs text-carbon-suave">
-          <span class="font-display font-semibold tracking-[0.14em] uppercase text-carbon">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-5 mb-6 border-b border-tech-line text-xs text-tech-muted">
+          <span class="font-display font-semibold tracking-[0.16em] uppercase text-white flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-terracota"></span>
             Archivo de Taller · Onega Muebles
           </span>
           <span>Selecciona cualquier cajón de madera natural para desplegar su sección</span>
@@ -386,7 +400,7 @@
 
           <!-- ==================== CAJÓN 01: NOSOTROS ==================== -->
           <button type="button" data-open-drawer="nosotros"
-            class="drawer-card-btn text-left w-full rounded-2xl focus:outline-none focus:ring-2 focus:ring-terracota focus:ring-offset-2 focus:ring-offset-arena cursor-pointer">
+            class="drawer-card-btn text-left w-full rounded-2xl focus:outline-none focus:ring-2 focus:ring-terracota focus:ring-offset-2 focus:ring-offset-tech-surface cursor-pointer">
             <div class="natural-wood-panel rounded-2xl p-6 sm:p-8 h-full flex flex-col justify-between min-h-[235px] sm:min-h-[255px]">
               
               <!-- Jaladera central fresada -->
@@ -428,7 +442,7 @@
 
           <!-- ==================== CAJÓN 02: SERVICIOS ==================== -->
           <button type="button" data-open-drawer="servicios"
-            class="drawer-card-btn text-left w-full rounded-2xl focus:outline-none focus:ring-2 focus:ring-terracota focus:ring-offset-2 focus:ring-offset-arena cursor-pointer">
+            class="drawer-card-btn text-left w-full rounded-2xl focus:outline-none focus:ring-2 focus:ring-terracota focus:ring-offset-2 focus:ring-offset-tech-surface cursor-pointer">
             <div class="natural-wood-panel rounded-2xl p-6 sm:p-8 h-full flex flex-col justify-between min-h-[235px] sm:min-h-[255px]">
               
               <!-- Jaladera central fresada -->
@@ -470,7 +484,7 @@
 
           <!-- ==================== CAJÓN 03: CLIENTES ==================== -->
           <button type="button" data-open-drawer="clientes"
-            class="drawer-card-btn text-left w-full rounded-2xl focus:outline-none focus:ring-2 focus:ring-terracota focus:ring-offset-2 focus:ring-offset-arena cursor-pointer">
+            class="drawer-card-btn text-left w-full rounded-2xl focus:outline-none focus:ring-2 focus:ring-terracota focus:ring-offset-2 focus:ring-offset-tech-surface cursor-pointer">
             <div class="natural-wood-panel rounded-2xl p-6 sm:p-8 h-full flex flex-col justify-between min-h-[235px] sm:min-h-[255px]">
               
               <!-- Jaladera central fresada -->
@@ -512,7 +526,7 @@
 
           <!-- ==================== CAJÓN 04: CONTACTO ==================== -->
           <button type="button" data-open-drawer="contacto"
-            class="drawer-card-btn text-left w-full rounded-2xl focus:outline-none focus:ring-2 focus:ring-terracota focus:ring-offset-2 focus:ring-offset-arena cursor-pointer">
+            class="drawer-card-btn text-left w-full rounded-2xl focus:outline-none focus:ring-2 focus:ring-terracota focus:ring-offset-2 focus:ring-offset-tech-surface cursor-pointer">
             <div class="natural-wood-panel rounded-2xl p-6 sm:p-8 h-full flex flex-col justify-between min-h-[235px] sm:min-h-[255px]">
               
               <!-- Jaladera central fresada -->
@@ -555,9 +569,9 @@
         </div>
 
         <!-- ======================================================================
-             INTERIOR DEL CAJÓN ABIERTO (INTEGRADO DENTRO DEL GABINETE)
+             INTERIOR DEL CAJÓN ABIERTO (PLANO MUESTRARIO CLARO + BORDE MADERA)
              ====================================================================== -->
-        <div id="drawerInteriorPanel" class="hidden mt-7 sm:mt-9 bg-hueso rounded-2xl border border-madera-canto/55 shadow-xl overflow-hidden drawer-interior-reveal" role="region" aria-live="polite" aria-labelledby="drawerActiveTitle">
+        <div id="drawerInteriorPanel" class="hidden mt-7 sm:mt-9 bg-hueso text-carbon rounded-2xl border border-madera-canto/55 shadow-2xl overflow-hidden drawer-interior-reveal" role="region" aria-live="polite" aria-labelledby="drawerActiveTitle">
           
           <!-- Frente superior de madera natural del cajón abierto -->
           <div class="wood-drawer-lip px-4 sm:px-7 py-2.5 flex items-center justify-between text-xs font-bold text-carbon-oscuro">
@@ -1062,7 +1076,6 @@
                       Casa Brasa &amp; Leña
                     </h3>
 
-                    <!-- Marco de plano arquitectónico listo para futura fotografía real -->
                     <div class="architectural-blueprint-box w-full h-40 rounded-xl border-2 border-dashed border-madera-canto/55 my-4 p-4 flex flex-col items-center justify-center text-center">
                       <svg class="w-24 h-12 text-madera-canto mb-2" viewBox="0 0 120 60" fill="none" stroke="currentColor" stroke-width="1.3">
                         <path d="M16 48 V18 C16 12 22 8 30 8 H90 C98 8 104 12 104 18 V48"/>
@@ -1499,9 +1512,9 @@
 
 
     <!-- ==========================================================================
-         4. SECCIÓN HORIZONTAL: PROCESO DE TRABAJO EN TALLER (4 PASOS)
+         4. SECCIÓN HORIZONTAL: PROCESO DE TRABAJO EN TALLER (4 PASOS) — TECH
          ========================================================================== -->
-    <section id="proceso" class="bg-arena border-y border-arena-borde py-14 sm:py-18 scroll-mt-20">
+    <section id="proceso" class="bg-tech-surface border-y border-tech-line py-14 sm:py-18 scroll-mt-20">
       <div class="max-w-6xl mx-auto px-4 sm:px-8">
         
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
@@ -1509,11 +1522,11 @@
             <span class="font-display text-xs font-semibold tracking-[0.18em] uppercase text-terracota">
               Metodología Onega Muebles
             </span>
-            <h2 class="font-display text-3xl sm:text-4xl font-bold text-carbon-oscuro mt-1">
+            <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-1">
               Proceso de Trabajo en Taller
             </h2>
           </div>
-          <p class="text-sm text-carbon-suave max-w-md">
+          <p class="text-sm text-tech-muted max-w-md">
             Un flujo claro desde el levantamiento arquitectónico hasta la instalación final para cumplir con tu fecha de inauguración.
           </p>
         </div>
@@ -1521,64 +1534,64 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           
           <!-- Paso 1 -->
-          <div class="bg-hueso rounded-2xl p-6 border border-arena-borde flex flex-col justify-between">
+          <div class="bg-tech-panel rounded-2xl p-6 border border-tech-line hover:border-madera-base/50 transition flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between mb-4">
                 <span class="font-display text-2xl font-bold text-terracota">01</span>
                 <span class="w-8 h-1 rounded-full bg-madera-base"></span>
               </div>
-              <h3 class="font-display text-lg font-bold text-carbon-oscuro mb-2">
+              <h3 class="font-display text-lg font-bold text-white mb-2">
                 Levantamiento y Planos
               </h3>
-              <p class="text-sm text-carbon-suave leading-relaxed">
+              <p class="text-sm text-tech-muted leading-relaxed">
                 Analizamos tus planos o tomamos medidas en sitio para maximizar el aforo de comensales y flujos de servicio.
               </p>
             </div>
           </div>
 
           <!-- Paso 2 -->
-          <div class="bg-hueso rounded-2xl p-6 border border-arena-borde flex flex-col justify-between">
+          <div class="bg-tech-panel rounded-2xl p-6 border border-tech-line hover:border-madera-base/50 transition flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between mb-4">
                 <span class="font-display text-2xl font-bold text-terracota">02</span>
                 <span class="w-8 h-1 rounded-full bg-madera-base"></span>
               </div>
-              <h3 class="font-display text-lg font-bold text-carbon-oscuro mb-2">
+              <h3 class="font-display text-lg font-bold text-white mb-2">
                 Propuesta y Muestra Física
               </h3>
-              <p class="text-sm text-carbon-suave leading-relaxed">
+              <p class="text-sm text-tech-muted leading-relaxed">
                 Definimos despiece técnico, tonos de madera natural y muestrario físico de textiles o vinipieles comerciales.
               </p>
             </div>
           </div>
 
           <!-- Paso 3 -->
-          <div class="bg-hueso rounded-2xl p-6 border border-arena-borde flex flex-col justify-between">
+          <div class="bg-tech-panel rounded-2xl p-6 border border-tech-line hover:border-madera-base/50 transition flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between mb-4">
                 <span class="font-display text-2xl font-bold text-terracota">03</span>
                 <span class="w-8 h-1 rounded-full bg-madera-base"></span>
               </div>
-              <h3 class="font-display text-lg font-bold text-carbon-oscuro mb-2">
+              <h3 class="font-display text-lg font-bold text-white mb-2">
                 Fabricación Alto Tráfico
               </h3>
-              <p class="text-sm text-carbon-suave leading-relaxed">
+              <p class="text-sm text-tech-muted leading-relaxed">
                 Producción integral de carpintería, herrería reforzada y tapicería bajo control de calidad en nuestro taller.
               </p>
             </div>
           </div>
 
           <!-- Paso 4 -->
-          <div class="bg-hueso rounded-2xl p-6 border border-arena-borde flex flex-col justify-between">
+          <div class="bg-tech-panel rounded-2xl p-6 border border-tech-line hover:border-madera-base/50 transition flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between mb-4">
                 <span class="font-display text-2xl font-bold text-terracota">04</span>
                 <span class="w-8 h-1 rounded-full bg-madera-base"></span>
               </div>
-              <h3 class="font-display text-lg font-bold text-carbon-oscuro mb-2">
+              <h3 class="font-display text-lg font-bold text-white mb-2">
                 Entrega e Instalación
               </h3>
-              <p class="text-sm text-carbon-suave leading-relaxed">
+              <p class="text-sm text-tech-muted leading-relaxed">
                 Logística puntual, nivelación de mesas y fijación de booths en obra para dejar tu espacio listo para operar.
               </p>
             </div>
@@ -1591,9 +1604,9 @@
 
 
   <!-- ==========================================================================
-       5. FOOTER EN CARBÓN PROFUNDO (#241E19)
+       5. FOOTER MINIMALISTA TECH CON ACENTO EN MADERA NATURAL & TERRACOTA
        ========================================================================== -->
-  <footer class="bg-carbon text-[#EAE3D9]">
+  <footer class="bg-tech-bg text-[#D5D9E2] border-t border-tech-line">
     <div class="max-w-6xl mx-auto px-4 sm:px-8 py-14 sm:py-16">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         
@@ -1605,7 +1618,7 @@
               ONEGA MUEBLES
             </span>
           </div>
-          <p class="text-sm text-[#BFB5A8] leading-relaxed">
+          <p class="text-sm text-tech-muted leading-relaxed">
             Carpintería, herrería y tapicería contract bajo diseño para restaurantes, bares, cafeterías, lounges y espacios residenciales.
           </p>
           <span class="font-display inline-block text-xs font-semibold uppercase tracking-widest text-terracota">
@@ -1616,7 +1629,7 @@
         <!-- Columna 2: Accesos Directos a los 4 Cajones -->
         <div>
           <h3 class="font-display text-base font-bold text-white mb-4">Cajones del Taller</h3>
-          <ul class="space-y-2.5 text-sm text-[#CFC6BA]">
+          <ul class="space-y-2.5 text-sm text-tech-muted">
             <li>
               <button type="button" data-open-drawer="nosotros" class="hover:text-terracota transition cursor-pointer">
                 01 / Nosotros &amp; Materiales
@@ -1643,7 +1656,7 @@
         <!-- Columna 3: Especialidades -->
         <div>
           <h3 class="font-display text-base font-bold text-white mb-4">Líneas de Fabricación</h3>
-          <ul class="space-y-2 text-sm text-[#CFC6BA]">
+          <ul class="space-y-2 text-sm text-tech-muted">
             <li>Booths y Sillones a Medida</li>
             <li>Barras, Contrabarras y Estaciones</li>
             <li>Mesas y Sillería de Comedor</li>
@@ -1654,7 +1667,7 @@
         <!-- Columna 4: Cotización Directa -->
         <div class="space-y-4">
           <h3 class="font-display text-base font-bold text-white">Inicia tu Proyecto</h3>
-          <p class="text-xs text-[#BFB5A8] leading-relaxed">
+          <p class="text-xs text-tech-muted leading-relaxed">
             ¿Tienes una apertura o remodelación en puerta? Envíanos los requerimientos de tu espacio y recibe una propuesta a la medida.
           </p>
           <button type="button" data-open-drawer="contacto"
@@ -1665,7 +1678,7 @@
 
       </div>
 
-      <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#9E9386]">
+      <div class="mt-12 pt-6 border-t border-tech-line flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#7E848E]">
         <p>© 2026 ONEGA MUEBLES. Todos los derechos reservados.</p>
         <p>Mobiliario y Tapicería Contract · Bares y Restaurantes</p>
       </div>
@@ -1676,8 +1689,8 @@
   <!-- ==========================================================================
        MODAL DETALLE TÉCNICO DE SERVICIO (CAJÓN 02)
        ========================================================================== -->
-  <div id="serviceDetailModal" class="hidden fixed inset-0 z-[60] bg-carbon/70 backdrop-blur-sm flex items-center justify-center p-4" role="dialog" aria-modal="true">
-    <div class="w-full max-w-lg bg-hueso rounded-2xl border border-madera-canto/60 shadow-2xl overflow-hidden tab-panel-fade">
+  <div id="serviceDetailModal" class="hidden fixed inset-0 z-[60] bg-black/75 backdrop-blur-sm flex items-center justify-center p-4" role="dialog" aria-modal="true">
+    <div class="w-full max-w-lg bg-hueso text-carbon rounded-2xl border border-madera-canto/60 shadow-2xl overflow-hidden tab-panel-fade">
       <div class="wood-drawer-lip px-5 py-2.5 flex items-center justify-between text-xs font-bold text-carbon-oscuro">
         <span id="modalServiceLabel" class="font-display tracking-wider">ESPECIFICACIÓN TÉCNICA</span>
         <button id="closeServiceModalBtn" type="button" class="px-2 py-0.5 rounded bg-hueso/90 hover:bg-terracota hover:text-white transition cursor-pointer">
@@ -1927,7 +1940,6 @@
       activeDrawerKey = tabKey;
       drawerLipNumber.textContent = DRAWER_TITLES[tabKey] || "ONEGA MUEBLES";
 
-      // Resaltar cajón activo en la cuadrícula 2x2
       drawerCardButtons.forEach(cardBtn => {
         if (cardBtn.dataset.openDrawer === tabKey) {
           cardBtn.classList.add("is-active-drawer");
@@ -1936,7 +1948,6 @@
         }
       });
 
-      // Resaltar pestaña superior activa
       tabButtons.forEach(btn => {
         const isSelected = btn.dataset.tab === tabKey;
         if (isSelected) {
@@ -1948,7 +1959,6 @@
         }
       });
 
-      // Mostrar panel correspondiente
       tabPanels.forEach(panel => {
         if (panel.id === `panel-${tabKey}`) {
           panel.classList.remove("hidden", "tab-panel-fade");
@@ -1970,7 +1980,6 @@
     document.querySelectorAll("[data-open-drawer]").forEach(el => {
       el.addEventListener("click", () => {
         const key = el.dataset.openDrawer;
-        // Si el disparador está fuera del gabinete (ej. navbar o footer), hacer scroll suave al gabinete
         if (!el.closest("#cajones")) {
           const cabinetEl = document.getElementById("cajones");
           if (cabinetEl) cabinetEl.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -2159,7 +2168,6 @@
       const tienePlanos = document.getElementById("tienePlanosCheckbox").checked;
       const notas = document.getElementById("notasProyectoInput").value.trim();
 
-      // Validación en línea sin alert()
       if (!nombre || !empresa || !telefono || !email) {
         showInlineError("Por favor completa tu nombre completo, nombre del restaurante/empresa, teléfono y correo electrónico.");
         return;
@@ -2205,7 +2213,6 @@
         if (!db) throw new Error("Firestore no disponible");
         await addDoc(collection(db, COLLECTION_NAME), firestorePayload);
       } catch {
-        // Respaldo silencioso en localStorage si no hay conexión
         saveSilentLocalBackup({
           ...firestorePayload,
           fechaCreacion: new Date().toISOString()
@@ -2215,7 +2222,6 @@
       submitOnegaQuoteBtn.disabled = false;
       submitOnegaQuoteBtn.innerHTML = `<span>Enviar Solicitud de Cotización</span><span>→</span>`;
 
-      // Poblar tarjeta de confirmación para el cliente
       document.getElementById("receiptFolio").textContent = folio;
       document.getElementById("receiptNombre").textContent = nombre;
       document.getElementById("receiptEmpresa").textContent = empresa;
@@ -2249,7 +2255,6 @@
       drawerInteriorPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
 
-    // Enviar otra solicitud
     document.getElementById("registerAnotherProjectBtn").addEventListener("click", () => {
       onegaQuoteForm.reset();
       hideInlineError();
@@ -2258,7 +2263,6 @@
       drawerInteriorPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
 
-    // Copiar folio y resumen al portapapeles usando document.execCommand('copy')
     document.getElementById("copyReceiptFolioBtn").addEventListener("click", () => {
       if (!lastSubmittedReceiptText) return;
       const tempArea = document.createElement("textarea");
@@ -2278,7 +2282,6 @@
       document.body.removeChild(tempArea);
     });
 
-    // Tecla Escape cierra el modal técnico o el cajón abierto
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         if (!serviceDetailModal.classList.contains("hidden")) {
